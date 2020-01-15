@@ -1,0 +1,133 @@
+.heading-ttl,
+.med-heading-ttl,
+.main-heading-ttl {
+  margin: 0 0 15px;
+  font-size: 4vw;
+  line-height: 1.5;
+  font-family: "Finger Paint", cursive;
+  @include respondToBelow(sm) {
+    font-size: 7vw;
+  }
+  &.qw {
+    width: 75%;
+    margin: auto;
+  }
+  &.hw {
+    width: 50%;
+    margin: auto;
+  }
+  &.deco {
+    position: relative;
+    > span {
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      padding: 5px 15px 5px 0;
+    }
+    &::before {
+      content: "";
+      height: 4px;
+      background: $light_bg;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 2px;
+      margin: auto;
+      position: absolute;
+    }
+    &.centered {
+      text-align: center;
+      max-width: 50%;
+      margin: auto;
+      @include respondToBelow(sm) {
+        max-width: 90%;
+      }
+      span {
+        padding: 5px 15px;
+      }
+      &::before {
+        height: 4px;
+      }
+    }
+    &.solid {
+      span {
+        color: $dark_base_color;
+      }
+      &::before {
+        background: $dark_base_color;
+        height: 4px;
+      }
+    }
+    &.bg_grey {
+      span {
+        background: $page_bg_color;
+      }
+    }
+  }
+  &.deco_line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before,
+    &:after {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: $text_primary_color;
+      margin-right: 15px;
+    }
+    &.white {
+      &:before,
+      &:after {
+        content: "";
+        width: 25px;
+        height: 2px;
+        background: #fff;
+      }
+    }
+    &.empty {
+      &:before,
+      &:after {
+        content: none;
+      }
+    }
+    &:after {
+      margin-left: 15px;
+      margin-right: 0;
+      flex-grow: 1;
+    }
+    &.center {
+      &:before {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+.med-heading-ttl {
+  font-family: inherit;
+  font-size: 25px;
+  @include respondToBelow(sm) {
+    font-size: 18px;
+  }
+}
+.main-heading-ttl {
+  font-family: inherit;
+  margin: 0 0 25px;
+  font-size: 35px;
+  @include respondToBelow(sm) {
+    font-size: 20px;
+    padding: 0 15px;
+  }
+  &.deco {
+    &::before {
+      height: 6px;
+    }
+    @include respondToBelow(sm) {
+      span {
+        padding: 0 15px;
+      }
+    }
+  }
+}

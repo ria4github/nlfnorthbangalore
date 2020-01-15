@@ -1,0 +1,16 @@
+.card {
+  background: #fff;
+  &:not(.no-shadow) {
+    @include shadow;
+  }
+  &.border {
+    border: solid 1px $border_color;
+  }
+  padding: $gutter_width;
+  &.large {
+    padding: $gutter_width_more;
+  }
+  @include respondToBelow(sm) {
+    padding: $gutter_width_xs;
+  }
+}

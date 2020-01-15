@@ -1,0 +1,14 @@
+.empty_state {
+  text-align: center;
+  padding: $gutter_width_xs $gutter_width_xs $gutter_width_more;
+  .state_img {
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .empty_label {
+    font-size: 20px;
+    color: $muted_color;
+  }
+}

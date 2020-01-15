@@ -1,0 +1,102 @@
+.cust-date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include respondToBelow(sm) {
+    overflow: auto;
+  }
+  > div {
+    padding: 3px 5px;
+    font-size: 12px;
+    border: solid 1px $border_color;
+    cursor: pointer;
+    height: 45px;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-grow: 1;
+    ~ div {
+      margin-left: 5px;
+    }
+    @include respondToBelow(sm) {
+      min-width: 25% !important;
+      &:first-child {
+        margin-left: 30px;
+      }
+    }
+    &:hover,
+    &.active {
+      background: $dark_base_color;
+      color: #fff;
+      border: solid 1px $dark_base_color;
+    }
+    .day {
+      width: 100%;
+      text-align: center;
+      &:after {
+        content: ", ";
+      }
+    }
+    .month {
+      margin-right: 5px;
+    }
+  }
+}
+
+.time-picker {
+  background: #fff;
+  border: solid 1px $border_color;
+  @include box-shadow(0 8px 17px 2px rgba(0, 0, 0, 0.14));
+  margin: 0 (-$gutter_width);
+  padding: $gutter_width_xs;
+  .card-body {
+    @include flex;
+    @include flex-wrap;
+    .time-period {
+      @include flex-grow(1);
+      > label {
+        text-align: center;
+      }
+      & ~ .time-period {
+        border-left: solid 1px $border_color;
+        margin-left: $gutter_width_xs;
+        padding-left: $gutter_width_xs;
+      }
+      .time-maps {
+        @include flex;
+        @include flex-wrap;
+        label {
+          margin: 0;
+          padding: 5px;
+          width: 50%;
+          > span {
+            cursor: pointer;
+            border: solid 1px #ddd;
+            font-size: 12px;
+            padding: 5px;
+            display: block;
+            text-align: center;
+          }
+          @include respondToBelow(sm) {
+            width: 100%;
+          }
+          &.active {
+            span {
+              background: $dark_base_color;
+              color: #fff;
+              height: auto;
+              padding: 5px 7px !important;
+              &:before,
+              &:after {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

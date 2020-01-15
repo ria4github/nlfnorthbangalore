@@ -1,0 +1,191 @@
+#auto_page {
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 76px;
+  @include respondToBelow(sm) {
+    // height: calc(100vh - 56px);
+    overflow: auto;
+    padding-top: 0;
+    padding-bottom: 65px;
+  }
+}
+body {
+  &.dontScroll {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+#auto_body {
+  @include respondToAbove(md) {
+    min-height: calc(100vh - 90px);
+    > *:first-child:not(.hero) {
+      margin-top: $gutter_width_more;
+      margin-bottom: $gutter_width_more;
+    }
+  }
+}
+.container {
+  margin: auto;
+  max-width: $max-width;
+  @include respondToBelow(sm) {
+    max-width: 100%;
+  }
+}
+.row {
+  display: flex;
+  margin-left: -7.5px;
+  margin-right: -7.5px;
+  padding: 0 15px;
+  flex-wrap: wrap;
+  &.middle {
+    align-items: center;
+  }
+  &.bor {
+    .col {
+      padding: 7.5px;
+      border: solid 1px #ddd;
+    }
+  }
+  .col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    @for $i from 1 through 12 {
+      &.l#{$i} {
+        -ms-flex: 0 0 ($i / 12) * 100%;
+        flex: 0 0 ($i / 12) * 100%;
+        max-width: ($i / 12) * 100%;
+      }
+    }
+    @include respondTo(sm) {
+      @for $i from 1 through 12 {
+        &.m#{$i} {
+          -ms-flex: 0 0 ($i / 12) * 100%;
+          flex: 0 0 ($i / 12) * 100%;
+          max-width: ($i / 12) * 100%;
+        }
+      }
+    }
+    @include respondTo(xs) {
+      @for $i from 1 through 12 {
+        &.s#{$i} {
+          -ms-flex: 0 0 ($i / 12) * 100%;
+          flex: 0 0 ($i / 12) * 100%;
+          max-width: ($i / 12) * 100%;
+        }
+      }
+    }
+  }
+}
+.hscroll {
+  @include respondToBelow(sm) {
+    display: flex !important;
+    justify-content: flex-start !important;
+    overflow: auto !important;
+    flex-wrap: nowrap !important;
+    margin: 0 !important;
+
+    > * {
+      min-width: 75% !important;
+      flex-grow: unset;
+      flex-basis: unset;
+      &:first-child {
+        margin-left: 12.5% !important;
+      }
+    }
+    &.two_itms {
+      > * {
+        min-width: 50% !important;
+        &:first-child {
+          margin-left: 12.5% !important;
+        }
+      }
+    }
+    &.three_itms {
+      > * {
+        min-width: 33.333% !important;
+        &:first-child {
+          margin-left: 10% !important;
+        }
+      }
+    }
+  }
+}
+
+.right-align {
+  text-align: right;
+}
+.center-align {
+  text-align: center;
+}
+.left-align {
+  text-align: left;
+}
+.flex-it {
+  @include flex;
+  &.full {
+    width: 100%;
+  }
+
+  &.wrap {
+    @include flex-wrap;
+  }
+
+  &.vcenter {
+    @include align-items(center);
+  }
+  &.vright {
+    @include align-items(flex-end);
+  }
+  &.vleft {
+    @include align-items(flex-start);
+  }
+
+  &.hcenter {
+    @include justify-content(center);
+  }
+  &.hright {
+    @include justify-content(flex-end);
+  }
+  &.hleft {
+    @include justify-content(flex-start);
+  }
+
+  &.hsplit {
+    @include justify-content(space-between);
+  }
+
+  &.col {
+    @include flex-direction(column);
+  }
+
+  &.col-i {
+    @include flex-direction(column-reverse);
+  }
+
+  &.row-i {
+    @include flex-direction(row-reverse);
+  }
+
+  &.wrap-it {
+    @include flex-wrap;
+  }
+
+  .flex-grow-full {
+    @include flex-grow(1);
+  }
+
+  .flex-grow-half {
+    @include flex-grow(0.5);
+  }
+
+  .flex-grow-twice {
+    @include flex-grow(2);
+  }
+}

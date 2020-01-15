@@ -1,0 +1,83 @@
+.dropDown {
+  position: relative;
+  list-style-type: none;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  @include respondToBelow(sm) {
+    width: 100%;
+  }
+  span {
+    padding: 0 15px;
+    padding-right: 25px;
+  }
+  &.border {
+    border: solid 1px $border_color;
+    span {
+      padding-right: 35px;
+    }
+    &:after {
+      right: 7px;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    top: 0;
+    bottom: 0;
+    background: url(../images/select-drop.png) center no-repeat;
+    margin: auto;
+    transition: all 0.25s;
+  }
+  &.open {
+    &:after {
+      transform: rotate(180deg);
+    }
+    > span {
+      color: $dark_base_color;
+    }
+  }
+  ul {
+    list-style-type: none;
+    background: #fff;
+    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.14),
+      0 4px 10px -5px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    left: 0;
+    z-index: 999;
+    margin: auto;
+    top: calc(100% + 10px);
+    white-space: nowrap;
+    border-radius: 10px;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      width: 0;
+      bottom: 100%;
+      margin: auto;
+      border: solid 10px;
+      border-color: transparent transparent #fff;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      min-height: 45px;
+      span,
+      a {
+        padding: 0 15px;
+        width: 100%;
+      }
+      & ~ li {
+        border-top: solid 1px $border_color;
+      }
+    }
+  }
+}
