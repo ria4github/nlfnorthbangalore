@@ -1,0 +1,21 @@
+
+
+header{
+    .navbar{
+        background: #ffffff !important;
+        .navbar-brand{
+            img{
+                width: auto;
+            }
+        }
+        .nav-menu{
+            display: flex;
+            li{
+                margin-right: 15px;
+            }
+            a {
+                color : red;
+            }
+        }
+    }
+}

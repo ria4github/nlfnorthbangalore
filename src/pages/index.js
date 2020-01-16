@@ -8,17 +8,27 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <div
-      style={{
-        display: `flex`,
-        alignItems: `center`,
-        justifyContent: `center`,
-        minHeight: `100vh`,
-        background: `#171D29`,
-        width: `100%`,
-        padding: `30px`,
-      }}
     >
-      <img src={logo} />
+      <section id="intro">
+    <div className="intro-container">
+      <div id="introCarousel" className="carousel slide" data-ride="carousel">
+           <div className="carousel-inner" role="listbox">
+
+          <div className="carousel-item active">
+            <div className="carousel-background"><img src alt=""/></div>
+            <div className="carousel-container">
+              <div className="carousel-content">
+                <h2>You Matter to God, You matter to Us</h2>
+                <p>Sunday Service @ 9 : 30 AM (English|Kannada)</p>
+                <a href="#featured-services" className="btn-get-started scrollto">Join Us</a>
+              </div>
+            </div>
+          </div>  
+          </div>   
+        
+        </div>
+      </div>
+  </section>
     </div>
   </Layout>
 )

@@ -1,35 +1,28 @@
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import logo from "../images/logo.png"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      padding: `0`,
-      margin: `0`,
-    }}
-  >
-    {/* <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div> */}
+const Header = ({ siteTitle }) => {
+  const name = 'ria';
+
+  
+  return (
+  <header>
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="/">
+        <img src={logo} width="30" height="30" alt="" />
+      </a>
+        <ul class="nav-menu">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Sermons</a></li>
+          <li><a href="#portfolio">Blogs</a></li>
+          <li><a href="#team">Connect</a></li>
+          <li><a href="#contact">Give</a></li>
+        </ul>
+    </nav>
   </header>
-)
+)}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
