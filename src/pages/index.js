@@ -3,6 +3,7 @@ import logo from "../images/logo.svg"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import churchcrowd from "../images/church-crowd.jpg"
 
 const IndexPage = () => (
   <Layout>
@@ -15,7 +16,7 @@ const IndexPage = () => (
            <div className="carousel-inner" role="listbox">
 
           <div className="carousel-item active">
-            <div className="carousel-background"><img src alt=""/></div>
+            <div className="carousel-background"><img src={churchcrowd} /></div>
             <div className="carousel-container">
               <div className="carousel-content">
                 <h2>You Matter to God, You matter to Us</h2>
