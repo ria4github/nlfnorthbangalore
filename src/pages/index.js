@@ -1,10 +1,9 @@
-import React from "react"
-import logo from "../images/logo.svg"
+import React from "react";
+import logo from "../images/logo.svg";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import churchcrowd from "../images/church-crowd.jpg"
-import blacktexture from "../images/black-texture.jpg"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import churchcrowd from "../images/church-crowd.jpg";
 
 const IndexPage = () => (
   <Layout>
@@ -12,16 +11,12 @@ const IndexPage = () => (
 
     <div>
       <section id="intro">
-        <div className="left-section">
-          
-        </div>
+        <div className="left-section"></div>
         <div className="right-section">
           <img src={churchcrowd} />
         </div>
       </section>
-      
     </div>
-
 
     {/* <div
     >
@@ -36,14 +31,14 @@ const IndexPage = () => (
                 <p>Sunday Service @ 9 : 30 AM (English|Kannada)</p>
                 <a href="#" className="btn-get-started scrollto">Join Us</a>
               </div>
-            </div> 
-          </div>   
-        
+            </div>
+          </div>
+
         </div>
       </div>
   </section>
     </div>  */}
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
