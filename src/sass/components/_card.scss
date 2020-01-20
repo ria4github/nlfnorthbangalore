@@ -14,3 +14,40 @@
     padding: $gutter_width_xs;
   }
 }
+
+#nue {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e1eaf4 50%, #e1eaf4 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > .tada {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    background: #e2ecf6;
+    border-radius: 30px;
+    padding: 50px;
+    max-width: 700px;
+    box-shadow: rgba(163, 177, 198, 0.6) 9px 9px 16px,
+      rgba(255, 255, 255, 0.5) -9px -9px 16px;
+    @include respondToBelow(sm) {
+      margin: 30px;
+      padding: 30px;
+    }
+    h1 {
+      margin: 0;
+      font-weight: 900;
+      font-size: 7vw;
+      line-height: 1.5;
+
+      @include respondToBelow(sm) {
+        font-size: 10vw;
+      }
+      color: #e2ecf6;
+      text-shadow: rgba(163, 177, 198, 0.6) 2px 2px 3px,
+        rgba(255, 255, 255, 0.5) -2px -2px 3px;
+    }
+  }
+}
