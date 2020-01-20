@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  transition : all .25s;
+  justify-content: space-between;
+  background: transparent;
+  position : fixed;
+  z-index : 9;
+  width : 100%;
+  padding : 15px 30px 15px 30px;
+
+  .nav-menu {
+    li {
+      a {
+        transition : all .25s;
+        color : white;
+      }
+    }
+    display: flex;
+    justify-content : space-between;
+    width: 380px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .logo-brand {
+    height : auto;
+    width: 250px;
+  }
+}
+
+.header.true {
+  background : white;
+  .nav-menu {
+    li {
+      a {
+        color : $dark_base_color;
+      }
+    }
+  }
+}

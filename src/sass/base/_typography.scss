@@ -1,14 +1,11 @@
 /*! Typebase.less v0.1.0 | MIT License */
 /* Setup */
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i");
 
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,300i,400,400i,500,500i,600,700,800,900&display=swap&subset=devanagari,latin-ext");
-@import url("https://fonts.googleapis.com/css?family=Finger+Paint&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,700i,900&display=swap');
 
 html {
   /* Change default typefaces here */
-  // font-family: "Roboto", sans-serif;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px !important;
   letter-spacing: 1px;
   line-height: 2;

@@ -1,0 +1,20 @@
+
+
+#intro {
+    display : flex;
+    justify-content: space-between;
+}
+
+.left-section {
+  background-color: red;
+  width : 30% ;
+}
+.right-section {
+  
+  width : 70% ;
+  img {
+    width : 100% ;
+  }
+}
+
+
