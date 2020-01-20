@@ -27,6 +27,7 @@ const Header = ({ siteTitle }) => {
           {/* <img src={logo}/> */}
         </div>
         <nav id="nav-menu-container">
+          <div className="visible-xs">Menu</div>
           <ul className="nav-menu">
             <li>
               <Link to="/about">About Us</Link>
