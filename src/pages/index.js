@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "../images/logo.svg";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import SEO from "../components/seo";
 import churchcrowd from "../images/church-crowd.jpg";
 
