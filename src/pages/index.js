@@ -8,14 +8,14 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
-    <div>
-      <section id="intro">
+    <section id="intro">
+      <div className="container">
         <div className="left-section"></div>
         <div className="right-section">
           <img src={churchcrowd} />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     {/* <div
     >
