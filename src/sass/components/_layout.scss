@@ -1,4 +1,4 @@
-#auto_page {
+#page {
   background: #fff;
   min-height: 100vh;
   padding-top: 76px;
@@ -19,7 +19,7 @@ body {
     left: 0;
   }
 }
-#auto_body {
+#body {
   @include respondToAbove(md) {
     min-height: calc(100vh - 90px);
     > *:first-child:not(.hero) {

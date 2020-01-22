@@ -2,19 +2,17 @@ import React from "react";
 
 import Layout from "../components/Layout";
 import SEO from "../components/seo";
-import churchcrowd from "../images/church-crowd.jpg";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
     <section id="intro">
-      <div className="container">
+      <div className="img_grid">
         <div className="left-section"></div>
-        <div className="right-section">
-          <img src={churchcrowd} />
-        </div>
+        <div className="right-section"></div>
       </div>
+      <div className="container"></div>
     </section>
 
     {/* <div

@@ -1,20 +1,18 @@
-
-
 #intro {
-    display : flex;
+  .img_grid {
+    display: flex;
     justify-content: space-between;
-}
-
-.left-section {
-  background-color: red;
-  width : 30% ;
-}
-.right-section {
-  
-  width : 70% ;
-  img {
-    width : 100% ;
+    min-height: 100vh;
+    .left-section {
+      background-color: $black_bg;
+      width: 30%;
+    }
+    .right-section {
+      width: 70%;
+      background-image: url(../images/church-crowd.jpg);
+      background-position: top left;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
   }
 }
-
-
