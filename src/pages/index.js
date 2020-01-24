@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/seo";
 
 const IndexPage = () => (
-  <Layout>
+  <Layout page="fixed_top">
     <SEO title="Home" />
 
     <section id="intro">

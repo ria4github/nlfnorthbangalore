@@ -1,40 +1,60 @@
 .header {
   display: flex;
-  transition : all .25s;
+  transition: all 0.25s;
   justify-content: space-between;
+  align-items: center;
   background: transparent;
-  position : fixed;
-  z-index : 9;
-  width : 100%;
-  padding : 15px 30px 15px 30px;
-
-  .nav-menu {
-    li {
-      a {
-        transition : all .25s;
-        color : white;
+  position: fixed;
+  z-index: 9;
+  width: 100%;
+  padding: 15px 30px 15px 30px;
+  top: 0;
+  left: 0;
+  right: 0;
+  #nav-menu-container {
+    width: 40%;
+    .nav-menu {
+      li {
+        a {
+          transition: all 0.25s;
+          color: white;
+          text-transform: uppercase;
+          &:hover {
+            color: $dark_base_color !important;
+          }
+        }
       }
+      display: flex;
+      justify-content: space-between;
     }
-    display: flex;
-    justify-content : space-between;
-    width: 380px;
-    margin-top: 10px;
-    margin-right: 10px;
   }
-  
+
   .logo-brand {
-    height : auto;
+    display: block;
+    height: auto;
     width: 250px;
+    height: 50px;
+    transition: all 0.25s;
+    background-image: url(../images/logo-white.svg);
+    background-position: top left;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
   }
 }
 
-.header.true {
-  background : white;
-  .nav-menu {
-    li {
-      a {
-        color : $dark_base_color;
+.header.true,
+#page:not(.fixed_top) .header {
+  background: white;
+  #nav-menu-container {
+    .nav-menu {
+      li {
+        a {
+          color: $black_bg;
+        }
       }
     }
+  }
+  .logo-brand {
+    background-image: url(../images/logo-black.svg);
   }
 }

@@ -1,12 +1,15 @@
 #page {
   background: #fff;
   min-height: 100vh;
-  padding-top: 76px;
+  padding-top: 85px;
   @include respondToBelow(sm) {
-    // height: calc(100vh - 56px);
+    height: calc(100vh - 65px);
     overflow: auto;
     padding-top: 0;
     padding-bottom: 65px;
+  }
+  &.fixed_top {
+    padding-top: 0;
   }
 }
 body {
