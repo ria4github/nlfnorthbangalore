@@ -5,21 +5,6 @@ module.exports = {
     author: `@gatsbyjs`
   },
   plugins: [
-    {
-      resolve: `gatsby-source-googlemaps-static`,
-      options: {
-        key: `AIzaSyDrZ7k1njJurxrZKExLdxw37LF-MDUXvXM`,
-        center: `13.0933741,77.5826987`,
-        zoom: 9,
-        markers: [
-          {
-            location: `13.0933741,77.5826987`,
-            label: `NLF`
-          }
-        ]
-      }
-    },
-
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {

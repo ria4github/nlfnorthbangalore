@@ -1,11 +1,12 @@
 $text_primary_color: #333333;
-$dark_base_color: #da251c; //#f88323;
+$dark_base_color: #ef6c00;
 $light_bc: #e49c99;
-$dark_base_color_2: #b0160e; // #dc3330;
+$dark_base_color_2: #da251c;
 $black_bg: #171d29;
 $border_color: rgba(0, 0, 0, 0.1);
 $button_color: $dark_base_color;
-$page_bg_color: #eeeeee;
+$white: #f5f6f7;
+$page_bg_color: $white;
 $link_color: #000000;
 $header_color: $dark_base_color;
 $muted_color: #999999;
@@ -14,7 +15,7 @@ $rc_main: #d32f2f;
 $light-bg: #f7f7f7;
 
 //english font
-$font-primary: "Roboto", sans-serif;
+$font-primary: "Quicksand", sans-serif;
 
 $wb-grad: -webkit-linear-gradient(135deg, $dark_base_color, $dark_base_color_2);
 $semi-grad: linear-gradient(
@@ -46,7 +47,7 @@ $screen-sm-min: 768px;
 $screen-md-min: 992px;
 
 // Large screen / wide desktop
-$screen-lg-min: 1200px;
+$screen-lg-min: 1100px;
 
 // So media queries don't overlap when required, provide a maximum
 $screen-xs-max: ($screen-sm-min - 1);
