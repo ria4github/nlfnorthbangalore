@@ -396,12 +396,16 @@
     }
   }
 }
+@mixin card_shadow {
+  box-shadow: -6px -6px 10px 5px rgba(#fff, 0.75),
+    6px 6px 10px 3px rgba(#000, 0.1);
+}
 @mixin shadow {
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(#000, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14);
 }
 @mixin theme-shadow {
-  box-shadow: 0 4px 20px 0 rgba(30, 190, 164, 0.29),
-    0 7px 10px -5px rgba(30, 190, 164, 0.4);
+  box-shadow: 0 4px 20px 0 rgba($dark_base_color, 0.29),
+    0 7px 10px -5px rgba($dark_base_color_2, 0.4);
 }
 @mixin red-shadow {
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),

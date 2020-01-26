@@ -3,8 +3,7 @@
   padding: 30px;
 
   &:not(.no-shadow) {
-    box-shadow: -6px -6px 10px 5px rgba(#fff, 0.75),
-      6px 6px 10px 3px rgba(#000, 0.1);
+    @include card_shadow;
   }
   &.noPad {
     padding: 0;
