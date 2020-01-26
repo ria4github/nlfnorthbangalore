@@ -16,11 +16,12 @@
     .nav-menu {
       li {
         a {
-          transition: all 0.25s;
+          transition: all 0.35s;
           color: $white;
           text-transform: uppercase;
           &:hover {
             color: $dark_base_color !important;
+            font-weight: 900;
           }
         }
       }
