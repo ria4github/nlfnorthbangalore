@@ -255,6 +255,7 @@ select,
       padding: 0;
       border-radius: 0;
       height: 35px;
+      background: transparent;
       &:not(:placeholder-shown),
       &:focus {
         box-shadow: none;

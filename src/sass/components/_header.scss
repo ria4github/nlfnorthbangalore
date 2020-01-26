@@ -45,7 +45,7 @@
 .header.true,
 #page:not(.fixed_top) .header {
   background: $white;
-  border-bottom: solid 1px $border_color;
+  @include shadow;
   #nav-menu-container {
     .nav-menu {
       li {
