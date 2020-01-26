@@ -45,18 +45,14 @@ input[type="date"] {
   }
 }
 .input {
-  &:not(.browser-default) {
-    padding: 0 15px !important;
-    line-height: 45px;
-    cursor: text;
-  }
+  padding: 0 15px !important;
+  line-height: 45px;
+  cursor: text;
 }
 textarea {
-  &:not(.browser-default) {
-    height: 150px;
-    padding: 10px !important;
-    line-height: 1.9;
-  }
+  height: 100px;
+  padding: 25px !important;
+  line-height: 1.9;
 }
 .comp_input {
   label {
@@ -167,9 +163,12 @@ select,
   }
 }
 
-.form-row {
+.form_row {
   width: 100%;
   position: relative;
+  & ~ .form_row {
+    margin-top: 25px;
+  }
   &.flexible {
     @include flex;
     @include align-items(center);
@@ -222,6 +221,50 @@ select,
   }
   .form-item {
     padding: 5px;
+  }
+  &.labelPlaceholder {
+    position: relative;
+    padding-top: 15px;
+    & ~ .form_row:not(.labelPlaceholder) {
+      margin-top: 35px;
+    }
+    label {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      pointer-events: none;
+      top: 20px;
+      line-height: 1;
+      transition: all 0.35s;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="email"],
+    select,
+    input[disabled],
+    .Select-input input,
+    .Select-control,
+    textarea,
+    .input {
+      border: none;
+      border-bottom: solid 1px $border_color;
+      padding: 0;
+      border-radius: 0;
+      height: 35px;
+      &:not(:placeholder-shown),
+      &:focus {
+        box-shadow: none;
+        & + label {
+          top: 2px;
+          opacity: 0.75;
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
 .split_form {

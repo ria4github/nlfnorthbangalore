@@ -1,7 +1,13 @@
 .card {
-  background: #fff;
+  background: $white;
+  padding: 30px;
+
   &:not(.no-shadow) {
-    @include shadow;
+    box-shadow: -6px -6px 10px 5px rgba(#fff, 0.75),
+      6px 6px 10px 3px rgba(#000, 0.1);
+  }
+  &.noPad {
+    padding: 0;
   }
   &.border {
     border: solid 1px $border_color;
@@ -10,6 +16,9 @@
   &.large {
     padding: $gutter_width_more;
   }
+  &.small {
+    padding: $gutter_width_xs;
+  }
   @include respondToBelow(sm) {
     padding: $gutter_width_xs;
   }
@@ -17,7 +26,6 @@
 
 #nue {
   min-height: 100vh;
-  background: linear-gradient(135deg, #e1eaf4 50%, #e1eaf4 75%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,10 +34,10 @@
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    background: #e2ecf6;
     border-radius: 30px;
     padding: 50px;
     max-width: 700px;
+    background: #e2ecf6;
     box-shadow: rgba(163, 177, 198, 0.6) 9px 9px 16px,
       rgba(255, 255, 255, 0.5) -9px -9px 16px;
     @include respondToBelow(sm) {

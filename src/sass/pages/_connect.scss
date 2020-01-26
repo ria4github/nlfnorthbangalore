@@ -1,9 +1,62 @@
 #connect {
-  background: $black_bg;
-  padding: 50px;
-  h1 {
-    color: #fff;
+  padding: 25px 0;
+  .row {
+    align-items: center;
   }
-  iframe {
+  .leftList {
+    .illust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        height: 200px;
+      }
+    }
+
+    ul {
+      width: 50%;
+      padding-left: 75px;
+      li {
+        line-height: 1.5;
+        font-size: 14px;
+        margin-bottom: 7px;
+        position: relative;
+        &:first-child {
+          font-weight: bold;
+        }
+        svg {
+          position: absolute;
+          top: 0;
+          left: -30px;
+        }
+      }
+    }
+    #maps {
+      margin-top: 35px;
+      border: solid 2px $border_color;
+      border-radius: 15px;
+      overflow: hidden;
+      .gmaps {
+        width: 100%;
+        iframe {
+          width: 100%;
+          height: 250px;
+        }
+      }
+    }
+  }
+  .rightList {
+    form {
+      h4 {
+        text-align: center;
+      }
+      .form_row {
+        .actions {
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }
