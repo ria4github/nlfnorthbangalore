@@ -115,9 +115,8 @@
     background-size: auto 100%;
     background-repeat: no-repeat;
     @include respondToBelow(xs) {
-      height: 50px;
-      width: 50px;
-      background-image: url(../images/logo_icon.svg) !important;
+      width: 150px;
+      height: 40px;
     }
   }
 }
@@ -185,6 +184,9 @@
           height: 2px;
           border-radius: 1px;
           background: $white;
+          .true & {
+            background: $black_bg;
+          }
           position: absolute;
           -webkit-backface-visibility: hidden;
           transition: transform 0.5s ease, border-radius 0.3s ease,
@@ -206,6 +208,9 @@
       display: block;
       fill: none;
       stroke: $white;
+      .true & {
+        stroke: $black_bg;
+      }
       stroke-width: 2px;
       width: 44px;
       height: 44px;
@@ -233,6 +238,9 @@
           &:before,
           &:after {
             background: $white;
+            .true & {
+              background: $black_bg;
+            }
           }
           &:first-child {
             &:before {
@@ -257,6 +265,9 @@
         stroke-dasharray: 0 82.801 62 82.801;
         transform: rotate(90deg);
         stroke: $white;
+        .true & {
+          stroke: $black_bg;
+        }
         &:nth-child(3) {
           transform: rotate(270deg);
         }

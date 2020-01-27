@@ -6,7 +6,12 @@
     background-position-y: center;
     background-size: 100%;
     position: relative;
+    overflow: hidden;
     background-repeat: no-repeat;
+    @include respondToBelow(sm) {
+      min-height: 70vh;
+      background-position: bottom center;
+    }
     &:after {
       content: "";
       position: absolute;
@@ -16,6 +21,12 @@
       bottom: 0;
       background: $black_bg;
       z-index: 1;
+      @include respondToBelow(sm) {
+        height: 200%;
+        width: 400%;
+        border-radius: 50%;
+        transform: translate(-50%, -75%);
+      }
     }
     .inner {
       z-index: 2;
@@ -34,6 +45,14 @@
           font-size: 6vw;
           color: #fff;
         }
+        @include respondToBelow(sm) {
+          text-align: center;
+          h4 {
+            font-size: 8vw;
+            margin-bottom: 0;
+            line-height: 1.5;
+          }
+        }
       }
     }
   }
@@ -42,6 +61,10 @@
   .req_btn_style {
     margin-top: 35px;
     min-width: 250px;
+
+    @include respondToBelow(sm) {
+      min-width: 150px;
+    }
   }
 }
 
@@ -49,10 +72,18 @@
   .post {
     display: flex;
     align-items: center;
+    @include respondToBelow(sm) {
+      display: block;
+      padding: 0 15px;
+    }
     .vid {
       height: 400px;
       width: 60%;
       display: flex;
+      @include respondToBelow(sm) {
+        width: 100%;
+        height: 200px;
+      }
       iframe {
         height: 100%;
         width: 100%;
@@ -65,12 +96,21 @@
       justify-content: center;
       align-items: center;
       padding: 15px;
+      @include respondToBelow(sm) {
+        width: 100%;
+        text-align: center;
+      }
     }
   }
   .tease {
     margin-top: 35px;
     text-align: center;
     font-size: 20px;
+    @include respondToBelow(sm) {
+      font-size: 16px;
+      margin-top: 15px;
+      padding: 0 15px;
+    }
   }
   a {
     color: $dark_base_color;
@@ -78,17 +118,30 @@
 }
 .section {
   padding: 100px 0;
+  @include respondToBelow(sm) {
+    padding: 50px 0;
+  }
   h4 {
     text-align: center;
     font-size: 40px;
     padding-bottom: 50px;
     margin-bottom: 50px;
     border-bottom: solid 1px $black_bg;
+
+    @include respondToBelow(sm) {
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
   }
 }
 .upto {
   background: #fff;
-
+  .container {
+    @include respondToBelow(sm) {
+      padding: 25px;
+    }
+  }
   .theList {
     .item {
       .img {
@@ -112,9 +165,15 @@
     text-align: center;
     max-width: 50%;
     margin: auto;
+    @include respondToBelow(sm) {
+      max-width: 90%;
+    }
     p {
       text-align: justify;
       font-size: 20px;
+      @include respondToBelow(sm) {
+        font-size: 16px;
+      }
     }
   }
 }

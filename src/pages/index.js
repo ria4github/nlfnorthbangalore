@@ -62,7 +62,7 @@ const IndexPage = () => (
         <div className="container">
           <h4 className="med-heading-ttl">WHAT WE ARE UPTO</h4>
           <div className="row">
-            <div className="col l4 theList">
+            <div className="col l4 s12 theList">
               <div className="item">
                 <div className="img">
                   <img src={bible_study} />
@@ -73,7 +73,7 @@ const IndexPage = () => (
                 </div>
               </div>
             </div>
-            <div className="col l4 theList">
+            <div className="col l4 s12 theList">
               <div className="item">
                 <div className="img">
                   <img src={encounter_evening} />
@@ -87,7 +87,7 @@ const IndexPage = () => (
                 </div>
               </div>
             </div>
-            <div className="col l4 theList">
+            <div className="col l4 s12 theList">
               <div className="item">
                 <div className="img">
                   <img src={youth_meet} />
