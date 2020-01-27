@@ -8,17 +8,24 @@ const Header = ({ siteTitle }) => {
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", changeHeader);
-    return () => {
-      window.removeEventListener("scroll", changeHeader);
-    };
-  });
-
-  const changeHeader = () => {
-    console.log(document.documentElement.scrollTop);
     if (document.documentElement.scrollTop > 100) {
       setColor(true);
-    } else setColor(false);
+    } else {
+      setColor(false);
+    }
+    window.addEventListener("scroll", listener);
+    return () => {
+      window.removeEventListener("scroll", listener);
+    };
+  }, []);
+
+  const listener = e => {
+    console.log("called");
+    if (document.documentElement.scrollTop > 100) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
   };
 
   return (
@@ -56,7 +63,7 @@ const Header = ({ siteTitle }) => {
           <ul className={`nav-menu ${menu ? "active" : "inactive"}`}>
             <li className="logo visible-xs">
               <Link to="/">
-                <img src={logoWhite} />
+                <img alt="logo" src={logoWhite} />
               </Link>
             </li>
             <li>

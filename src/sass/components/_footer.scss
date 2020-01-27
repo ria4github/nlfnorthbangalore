@@ -4,18 +4,37 @@
   margin-top: 50px;
   .midFooter {
     padding: 35px;
+    @include respondToBelow(sm) {
+      padding: 35px 15px;
+    }
     .row {
       align-items: center;
       .col {
         font-size: 14px;
+        @include respondToBelow(sm) {
+          & ~ .col {
+            margin-top: 25px;
+          }
+        }
         &.addr {
-          padding-right: 50px;
+          @include respondToAbove(md) {
+            padding-right: 50px;
+          }
+          @include respondToBelow(sm) {
+            p {
+              font-size: 14px;
+            }
+          }
         }
         &.ctaction {
           padding: 0 30px;
+          @include respondToBelow(sm) {
+            padding: 0 15px;
+          }
           p.icon {
             margin-bottom: 10px;
             align-items: center;
+
             svg {
               height: 20px;
               width: 20px;
@@ -27,6 +46,9 @@
           display: flex;
           width: 100%;
           justify-content: center;
+          @include respondToBelow(sm) {
+            justify-content: space-between;
+          }
           li {
             a {
               padding: 15px;

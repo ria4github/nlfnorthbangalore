@@ -13,14 +13,14 @@ const Footer = () => {
       <div className="midFooter">
         <div className="container">
           <div className="row">
-            <div className="col l4 addr">
+            <div className="col l4 s12 addr">
               <p>
                 NEW LIFE FELLOWSHIP YELAHANKA CHURCH, NO.293, 3RD FLOOR, ABOVE
                 KANTI SWEETS, 1ST A MAIN RD, A SECTOR, 15TH A CROSS RD,
                 BENGALURU, KARNATAKA-560064, INDIA.
               </p>
             </div>
-            <div className="col l4 ctaction">
+            <div className="col l4 s12 ctaction">
               <p className="icon flexIt">
                 <FiPhone />
                 <span>+91-7338554131</span>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <span>NEWLIFEYELAHANKA@GMAIL.COM</span>
               </p>
             </div>
-            <div className="col l4">
+            <div className="col l4 s12">
               <ul>
                 <li>
                   <a href="/">
