@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
-import firestore from "../firestore";
+import firestore from "../Firestore";
 
 const Connect = () => {
   const [success, setSuccess] = useState("");
