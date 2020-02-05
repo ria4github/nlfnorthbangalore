@@ -1,7 +1,29 @@
 #footer {
   text-transform: uppercase;
-  background: #fff;
+  background: $black_bg;
+  color: #fff;
+  padding-top: 50px;
+  position: relative;
   margin-top: 50px;
+  .fixed_top & {
+    margin-top: 0;
+  }
+  &:before {
+    content: "";
+    clip-path: ellipse(50% 20% at 50% 50%);
+    height: 150px;
+    background-color: $page_bg_color;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    .fixed_top & {
+      background-color: #fff;
+    }
+  }
+
   .midFooter {
     padding: 35px;
     @include respondToBelow(sm) {
@@ -52,9 +74,39 @@
           li {
             a {
               padding: 15px;
+              display: flex;
+              align-items: center;
+              border-radius: 15px;
+              transition: all 0.15s;
+              margin: 0 10px;
               svg {
-                height: 40px;
-                width: 40px;
+                height: 30px;
+                width: 30px;
+              }
+              &:hover {
+                color: #fff;
+                &.Facebook {
+                  background: #3b5999;
+                }
+
+                &.Youtube {
+                  background: #cd201f;
+                }
+
+                &.Instagram {
+                  background: radial-gradient(
+                    circle at 30% 107%,
+                    #fdf497 0%,
+                    #fdf497 5%,
+                    #fd5949 45%,
+                    #d6249f 60%,
+                    #285aeb 90%
+                  );
+                }
+
+                &.Whatsapp {
+                  background: #25d366;
+                }
               }
             }
           }
@@ -63,7 +115,7 @@
     }
   }
   .copy {
-    background: $black_bg;
+    background: rgba(0, 0, 0, 0.75);
     color: #fff;
     text-align: center;
     padding: 15px;

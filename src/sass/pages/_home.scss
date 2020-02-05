@@ -16,7 +16,7 @@
       content: "";
       position: absolute;
       left: 0;
-      width: 40%;
+      // width: 40%;
       top: 0;
       bottom: 0;
       background: $black_bg;
@@ -39,10 +39,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       .container {
         width: 100%;
         h4 {
-          font-size: 6vw;
+          margin-top: 50px;
+          font-size: 5vw;
           color: #fff;
         }
         @include respondToBelow(sm) {
@@ -57,130 +59,170 @@
     }
   }
 }
+section {
+  .container {
+    padding: 50px 0;
+    a:not(.button) {
+      color: $wb-blue;
+      font-weight: 600;
+    }
+  }
+}
+
+.strongTitle {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
 .home {
   .req_btn_style {
-    margin-top: 35px;
+    margin-top: 25px;
     min-width: 250px;
-
     @include respondToBelow(sm) {
       min-width: 150px;
     }
   }
 }
 
-.sermon {
-  .post {
-    display: flex;
-    align-items: center;
-    @include respondToBelow(sm) {
-      display: block;
-      padding: 0 15px;
-    }
-    .vid {
-      height: 400px;
-      width: 60%;
-      display: flex;
-      @include respondToBelow(sm) {
-        width: 100%;
-        height: 200px;
-      }
-      iframe {
-        height: 100%;
-        width: 100%;
-      }
-    }
-    .desc {
-      width: 40%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-      @include respondToBelow(sm) {
-        width: 100%;
-        text-align: center;
-      }
-    }
+.about {
+  .modernLine {
+    margin-top: 10px;
   }
-  .tease {
-    margin-top: 35px;
-    text-align: center;
-    font-size: 20px;
-    @include respondToBelow(sm) {
-      font-size: 16px;
-      margin-top: 15px;
-      padding: 0 15px;
-    }
+  .solid {
+    font-weight: 600;
   }
-  a {
-    color: $dark_base_color;
-  }
-}
-.section {
-  padding: 100px 0;
-  @include respondToBelow(sm) {
-    padding: 50px 0;
-  }
-  h4 {
-    text-align: center;
-    font-size: 40px;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
-    border-bottom: solid 1px $black_bg;
 
-    @include respondToBelow(sm) {
-      padding-bottom: 25px;
-      margin-bottom: 25px;
-      font-size: 30px;
+  .readmore {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  .button {
+    margin-top: 25px;
+  }
+  .row {
+    .col {
+      padding: 75px;
     }
   }
-}
-.upto {
-  background: #fff;
-  .container {
-    @include respondToBelow(sm) {
-      padding: 25px;
-    }
-  }
-  .theList {
-    .item {
-      .img {
-        padding: 15px;
-        background: #fff;
-        border-radius: 10px;
-        @include shadow;
-        overflow: hidden;
-        img {
-          transform: scale(1.2);
+  .splitRow {
+    .col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      color: #fff;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 2;
+        background: linear-gradient(
+          to bottom,
+          rgba($black_bg, 0.9) 70%,
+          rgba($black_bg, 0.7)
+        );
+      }
+      &:before {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        z-index: 0;
+        filter: grayscale(1);
+      }
+
+      > * {
+        position: relative;
+        z-index: 4;
+      }
+
+      &.kids {
+        &::before {
+          background-image: url(../images/kids_bg.jpg);
         }
       }
-      .desc {
-        padding: 15px;
+      &.youth {
+        &::before {
+          background-image: url(../images/youth_bg.jpg);
+        }
       }
     }
   }
 }
-.prayerReq {
-  .prayerDesc {
+.ministries {
+  h4 {
     text-align: center;
-    max-width: 50%;
-    margin: auto;
-    @include respondToBelow(sm) {
-      max-width: 90%;
+  }
+  .row {
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+  .card {
+    border-radius: 25px;
+    overflow: hidden;
+    transform: scale(0.9);
+    .cardimg {
+      height: 200px;
+      width: 200px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      border-radius: 50%;
+      transform: translate(-30%, -30%);
     }
-    p {
-      text-align: justify;
-      font-size: 20px;
-      @include respondToBelow(sm) {
-        font-size: 16px;
+    .strongTitle {
+      margin: -25px 0 10px;
+    }
+  }
+  .col:nth-child(2) .card {
+    transform: scale(1);
+  }
+  .bsdy {
+    background-image: url("../images/bible_study.jpg");
+  }
+  .enc_eve {
+    background-image: url("../images/encounter_evening.jpg");
+  }
+  .youth_meet {
+    background-image: url("../images/youth_meet.jpg");
+  }
+}
+
+.team {
+  background: white;
+  position: relative;
+  text-align: right;
+
+  .row {
+    align-items: center;
+    .col {
+      padding: 0 100px;
+      & ~ .col {
+        padding: 50px 0;
+        display: flex;
+        justify-content: flex-end;
       }
     }
   }
-}
-.strongTitle {
-  font-size: 22px;
-  font-weight: 900;
-  padding-bottom: 5px;
-  border-bottom: solid 1px $dark_base_color;
-  margin-bottom: 5px;
+  svg {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .modernLine {
+    margin-top: 10px;
+  }
+  .solid {
+    font-weight: 600;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
 }

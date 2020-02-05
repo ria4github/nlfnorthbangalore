@@ -1,10 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
+import firestore from "../firestore";
 
-const connect = () => {
+const Connect = () => {
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const initialItemValues = {
+    userName: "",
+    userMail: "",
+    userPhone: "",
+    userMessage: ""
+  };
+
+  const [item, setItem] = useState(initialItemValues);
+
+  const sendDetails = event => {
+    event.preventDefault();
+
+    // These lines are new
+    if (
+      item.userName.length &&
+      item.userMail.length &&
+      item.userPhone.length &&
+      item.userMessage.length
+    ) {
+      firestore
+        .collection("connect_data")
+        .doc()
+        .set(item)
+        .then(() => {
+          setItem(initialItemValues);
+          setSuccess(
+            "Thanks....! We have recieved your request. We will get back to you soon."
+          );
+        })
+        .catch(error => {
+          console.error(error);
+          setError("Ooops....! Somthing went wrong.");
+        });
+    }
+  };
+
+  const onChange = e => {
+    setItem({
+      ...item,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <Layout>
       <div id="connect">
@@ -35,29 +82,65 @@ const connect = () => {
               </div>
             </div>
             <div className="col l5 rightList">
-              <form className="card">
+              <form className="card" onSubmit={sendDetails}>
                 <h4 className="main-heading-ttl">
                   We'd love to know you and pray with you !
                 </h4>
                 <div className="form_row labelPlaceholder">
-                  <input placeholder=" " type="text" />
+                  <input
+                    value={item.userName}
+                    name="userName"
+                    onChange={e => onChange(e)}
+                    placeholder=" "
+                    type="text"
+                  />
                   <label className="key">Name</label>
                 </div>
                 <div className="form_row labelPlaceholder">
-                  <input placeholder=" " type="text" />
+                  <input
+                    value={item.userMail}
+                    name="userMail"
+                    onChange={e => onChange(e)}
+                    placeholder=" "
+                    type="text"
+                  />
                   <label className="key">Email</label>
                 </div>
                 <div className="form_row labelPlaceholder">
-                  <input placeholder=" " type="text" />
+                  <input
+                    value={item.userPhone}
+                    name="userPhone"
+                    onChange={e => onChange(e)}
+                    placeholder=" "
+                    type="text"
+                  />
                   <label className="key">Phone</label>
                 </div>
                 <div className="form_row">
                   <label className="key">Messege / Prayer Request</label>
-                  <textarea type="text" />
+                  <textarea
+                    value={item.userMessage}
+                    name="userMessage"
+                    onChange={e => onChange(e)}
+                    type="text"
+                  />
+                </div>
+                <div className="form_row">
+                  {success && (
+                    <span className="wb-alert wb-success">{success}</span>
+                  )}
+                  {error && <span className="wb-alert wb-error">{error}</span>}
                 </div>
                 <div className="form_row">
                   <div className="actions">
-                    <button>Submit</button>
+                    {!item.userName.length ||
+                    !item.userMail.length ||
+                    !item.userPhone.length ||
+                    !item.userMessage.length ? (
+                      <button disabled>Submit</button>
+                    ) : (
+                      <button>Submit</button>
+                    )}
                   </div>
                 </div>
               </form>
@@ -69,4 +152,4 @@ const connect = () => {
   );
 };
 
-export default connect;
+export default Connect;

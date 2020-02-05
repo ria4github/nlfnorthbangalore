@@ -48,6 +48,20 @@ body {
       border: solid 1px #ddd;
     }
   }
+  &.XLSpacing {
+    margin-left: -50px;
+    margin-right: -50px;
+    &.bor {
+      .col {
+        padding: 50px;
+        border: solid 1px #ddd;
+      }
+    }
+    .col {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
   &.largeSpacing {
     margin-left: -25px;
     margin-right: -25px;
@@ -183,8 +197,11 @@ body {
 
     > * {
       min-width: 75% !important;
-      flex-grow: unset;
-      flex-basis: unset;
+      flex-grow: unset !important;
+      flex-basis: unset !important;
+      max-width: none !important;
+      flex: unset !important;
+
       &:first-child {
         margin-left: 12.5% !important;
       }

@@ -1,11 +1,13 @@
 import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-  FaWhatsapp
-} from "react-icons/fa";
-import { FiPhone, FiMail } from "react-icons/fi";
+  FiFacebook,
+  FiInstagram,
+  FiYoutube,
+  FiPhone,
+  FiMail
+} from "react-icons/fi";
+import FooterSVG from "./svgjsx/FooterSVG";
 
 const Footer = () => {
   return (
@@ -33,22 +35,22 @@ const Footer = () => {
             <div className="col l4 s12">
               <ul>
                 <li>
-                  <a href="/">
-                    <FaFacebookF />
+                  <a className="Facebook" href="/">
+                    <FiFacebook />
                   </a>
                 </li>
                 <li>
-                  <a href="/">
-                    <FaInstagram />
+                  <a className="Instagram" href="/">
+                    <FiInstagram />
                   </a>
                 </li>
                 <li>
-                  <a href="/">
-                    <FaYoutube />
+                  <a className="Youtube " href="/">
+                    <FiYoutube />
                   </a>
                 </li>
                 <li>
-                  <a href="/">
+                  <a className="Whatsapp" href="/">
                     <FaWhatsapp />
                   </a>
                 </li>
