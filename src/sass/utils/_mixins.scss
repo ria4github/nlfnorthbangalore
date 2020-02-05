@@ -559,6 +559,11 @@
       background: transparent;
       border: solid 1px #fff;
     }
+    &.black {
+      color: $black_bg;
+      background: transparent;
+      border: solid 1px $black_bg;
+    }
     // &.btn-danger {
     // background: rgba($wb-red, 0.2);
     // color: $wb-red;

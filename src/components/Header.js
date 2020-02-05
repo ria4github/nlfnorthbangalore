@@ -8,7 +8,7 @@ const Header = ({ siteTitle }) => {
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
-    if (document.documentElement.scrollTop > 100) {
+    if (document.documentElement.scrollTop > 10) {
       setColor(true);
     } else {
       setColor(false);
@@ -20,8 +20,7 @@ const Header = ({ siteTitle }) => {
   }, []);
 
   const listener = e => {
-    console.log("called");
-    if (document.documentElement.scrollTop > 100) {
+    if (document.documentElement.scrollTop > 10) {
       setColor(true);
     } else {
       setColor(false);
@@ -67,13 +66,16 @@ const Header = ({ siteTitle }) => {
               </Link>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <Link to="/blog">Blogs</Link>
+            </li>
+            <li>
+              <Link to="/sermons">Ministries</Link>
             </li>
             <li>
               <Link to="/sermons">Sermons</Link>
             </li>
             <li>
-              <Link to="/blog">Blogs</Link>
+              <Link to="/about">About Us</Link>
             </li>
             <li>
               <Link to="/connect">Connect</Link>
