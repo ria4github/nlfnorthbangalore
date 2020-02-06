@@ -740,12 +740,19 @@ select:-webkit-autofill:focus {
   &.invert {
     flex-direction: row-reverse;
   }
+  @include respondToBelow(sm) {
+    justify-content: center;
+  }
   &:after {
     content: "";
     height: 5px;
     width: 50%;
     margin: 10px;
     background: $black_bg;
+
+    @include respondToBelow(sm) {
+      width: 25%;
+    }
   }
   span {
     height: 10px;
@@ -754,5 +761,14 @@ select:-webkit-autofill:focus {
     margin: 10px;
     background: $black_bg;
     border-radius: 30px;
+  }
+  @include respondToBelow(sm) {
+    &:before {
+      content: "";
+      height: 5px;
+      width: 25%;
+      margin: 10px;
+      background: $black_bg;
+    }
   }
 }

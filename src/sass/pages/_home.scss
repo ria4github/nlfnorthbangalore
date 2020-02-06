@@ -73,6 +73,9 @@ section {
   font-size: 20px;
   line-height: 1.5;
   font-weight: 600;
+  @include respondToBelow(sm) {
+    font-size: 16px;
+  }
 }
 
 .home {
@@ -101,11 +104,26 @@ section {
     margin-top: 25px;
   }
   .row {
+    @include respondToBelow(sm) {
+      margin: 0;
+    }
     .col {
       padding: 75px;
+      @include respondToBelow(sm) {
+        padding: 15px;
+        text-align: center;
+      }
+    }
+  }
+  .container {
+    @include respondToBelow(sm) {
+      padding-bottom: 0;
     }
   }
   .splitRow {
+    margin: 15px 0 0;
+    background: #fff;
+    padding: 15px 0;
     .col {
       display: flex;
       align-items: center;
@@ -151,6 +169,36 @@ section {
           background-image: url(../images/youth_bg.jpg);
         }
       }
+      @include respondToBelow(sm) {
+        padding: 0;
+        max-width: calc(100% - 80px);
+        margin: 15px;
+        overflow: hidden;
+        &:before {
+          background-size: auto 100%;
+        }
+        h4 {
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+        .inWrap {
+          padding: 15px;
+        }
+        p {
+          font-size: 13px;
+          line-height: 1.5;
+        }
+        &.kids {
+          margin-right: 80px;
+          margin-left: 0;
+          border-radius: 0 15px 15px 0;
+        }
+        &.youth {
+          margin-left: 80px;
+          margin-right: 0;
+          border-radius: 15px 0 0 15px;
+        }
+      }
     }
   }
 }
@@ -161,22 +209,51 @@ section {
   .row {
     justify-content: center;
     margin-bottom: 35px;
+    @include respondToBelow(sm) {
+      margin: 15px;
+      flex-wrap: nowrap;
+      overflow: auto;
+      padding: 15px;
+      justify-content: flex-start;
+      .col {
+        padding: 0;
+        margin-right: 25px;
+        &:first-child {
+          margin-left: 10%;
+        }
+        .cardDesc {
+          font-size: 14px;
+        }
+      }
+    }
   }
   .card {
     border-radius: 25px;
     overflow: hidden;
-    transform: scale(0.9);
+    @include respondToAbove(md) {
+      transform: scale(0.9);
+    }
     .cardimg {
-      height: 200px;
-      width: 200px;
+      height: 150px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: 100%;
-      border-radius: 50%;
-      transform: translate(-30%, -30%);
+      @include respondToAbove(md) {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        transform: translate(-30%, -30%);
+      }
+      @include respondToBelow(sm) {
+        margin: -15px -15px 15px;
+      }
     }
     .strongTitle {
       margin: -25px 0 10px;
+      font-weight: 900;
+      @include respondToBelow(sm) {
+        margin-top: 15px;
+      }
     }
   }
   .col:nth-child(2) .card {
@@ -199,20 +276,27 @@ section {
   text-align: right;
 
   .row {
+    margin: 0;
     align-items: center;
     .col {
       padding: 0 100px;
+      @include respondToBelow(sm) {
+        padding: 50px 15px;
+        text-align: center;
+        p {
+          font-size: 14px;
+        }
+      }
       & ~ .col {
         padding: 50px 0;
         display: flex;
         justify-content: flex-end;
+        @include respondToBelow(sm) {
+          padding-top: 0;
+          text-align: center;
+        }
       }
     }
-  }
-  svg {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
   }
 
   .modernLine {
