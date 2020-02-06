@@ -29,7 +29,7 @@ const IndexPage = () => (
       <section className="about section">
         <div className="container">
           <div className="row XLSpacing middle">
-            <div className="col l6 right-align">
+            <div className="col l6 s12 right-align">
               <h4 className="main-heading-ttl">ABOUT US</h4>
               <p className="strongTitle">
                 We are group of people from all walks of life who are being
@@ -41,7 +41,7 @@ const IndexPage = () => (
               </Link>
               <ModernLine invert />
             </div>
-            <div className="col l6">
+            <div className="col l6 s12">
               <p className="strongTitle">Join us every Sunday</p>
               <p className="solid">Kannada : 8:30 AM to 10:00 AM</p>
               <p className="solid">English : 11:00 AM to 12:30 PM</p>
@@ -58,7 +58,7 @@ const IndexPage = () => (
           </div>
         </div>
         <div className="row splitRow">
-          <div className="col l6 kids">
+          <div className="col l6 s12 kids">
             <div className="inWrap">
               <h4 className="main-heading-ttl">KIDS</h4>
               <p>
@@ -68,7 +68,7 @@ const IndexPage = () => (
               </p>
             </div>
           </div>
-          <div className="col l6 youth">
+          <div className="col l6 s12 youth">
             <div className="inWrap">
               <h4 className="main-heading-ttl">YOUTH</h4>
               <p>
@@ -86,7 +86,7 @@ const IndexPage = () => (
           <div className="innerWrap">
             <h4 className="main-heading-ttl">Ministries</h4>
             <div className="row">
-              <div className="col l3">
+              <div className="col l3 s9">
                 <div className="card">
                   <div className="bsdy cardimg"></div>
                   <p className="strongTitle">Bible Study</p>
@@ -95,7 +95,7 @@ const IndexPage = () => (
                   </p>
                 </div>
               </div>
-              <div className="col l3">
+              <div className="col l3 s9">
                 <div className="card">
                   <div className="enc_eve cardimg"></div>
                   <p className="strongTitle">Encounter Evening</p>
@@ -104,7 +104,7 @@ const IndexPage = () => (
                   </p>
                 </div>
               </div>
-              <div className="col l3">
+              <div className="col l3 s9">
                 <div className="card">
                   <div className="youth_meet cardimg"></div>
                   <p className="strongTitle">Life Group</p>
@@ -124,7 +124,7 @@ const IndexPage = () => (
       </section>
       <section className="team section">
         <div className="row">
-          <div className="col l8">
+          <div className="col l8 s12">
             <h4 className="main-heading-ttl">TEAM</h4>
             <p className="strongTitle">
               Pastor Manohar and his loving wife Hima Bindu, love Christ and are
@@ -139,7 +139,7 @@ const IndexPage = () => (
             </p>
             <ModernLine invert />
           </div>
-          <div className="col l4">
+          <div className="col l4 s12">
             <div className="clip redBg">
               <img src={pastorTeam} />
             </div>
