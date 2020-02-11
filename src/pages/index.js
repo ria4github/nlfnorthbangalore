@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/seo";
 import { Link } from "gatsby";
-
 import ModernLine from "../components/ModernLine";
 import pastorTeam from "../images/pastorTeam.png";
 
@@ -48,6 +47,7 @@ const IndexPage = () => (
               <p>
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="button plain black small"
                   href="https://goo.gl/maps/TgWKShUqf5Ep2ktz8"
                 >
@@ -141,7 +141,11 @@ const IndexPage = () => (
           </div>
           <div className="col l4 s12">
             <div className="clip redBg">
-              <img src={pastorTeam} />
+              <img
+                alt={pastorTeam}
+                title="Pastor Manohar and Family"
+                src={pastorTeam}
+              />
             </div>
           </div>
         </div>

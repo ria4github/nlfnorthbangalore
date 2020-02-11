@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
-import firestore from "../Firestore";
+// import { firestore, functions } from "../Firestore";
 
 const Connect = () => {
   const [success, setSuccess] = useState("");
@@ -20,29 +20,29 @@ const Connect = () => {
 
   const sendDetails = event => {
     event.preventDefault();
-
+    console.log(item);
     // These lines are new
-    if (
-      item.userName.length &&
-      item.userMail.length &&
-      item.userPhone.length &&
-      item.userMessage.length
-    ) {
-      firestore
-        .collection("connect_data")
-        .doc()
-        .set(item)
-        .then(() => {
-          setItem(initialItemValues);
-          setSuccess(
-            "Thanks....! We have recieved your request. We will get back to you soon."
-          );
-        })
-        .catch(error => {
-          console.error(error);
-          setError("Ooops....! Somthing went wrong.");
-        });
-    }
+    // if (
+    //   item.userName.length &&
+    //   item.userMail.length &&
+    //   item.userPhone.length &&
+    //   item.userMessage.length
+    // ) {
+    //   firestore
+    //     .collection("connect_data")
+    //     .doc()
+    //     .set(item)
+    //     .then(() => {
+    //       setItem(initialItemValues);
+    //       setSuccess(
+    //         "Thanks....! We have recieved your request. We will get back to you soon."
+    //       );
+    //     })
+    //     .catch(error => {
+    //       console.error(error);
+    //       setError("Ooops....! Somthing went wrong.");
+    //     });
+    // }
   };
 
   const onChange = e => {
@@ -60,9 +60,8 @@ const Connect = () => {
             <div className="col l7 leftList">
               <div className="flexIt">
                 <div className="illust">
-                  <img src={connect_illust} />
+                  <img src={connect_illust} alt={connect_illust} />
                 </div>
-
                 <ul className="addr_list">
                   <li>New Life Fellowship Yelahanka</li>
                   <li>
@@ -94,7 +93,9 @@ const Connect = () => {
                     placeholder=" "
                     type="text"
                   />
-                  <label className="key">Name</label>
+                  <label htmlFor="name" className="key">
+                    Name
+                  </label>
                 </div>
                 <div className="form_row labelPlaceholder">
                   <input
@@ -104,7 +105,9 @@ const Connect = () => {
                     placeholder=" "
                     type="text"
                   />
-                  <label className="key">Email</label>
+                  <label htmlFor="email" className="key">
+                    Email
+                  </label>
                 </div>
                 <div className="form_row labelPlaceholder">
                   <input
@@ -114,10 +117,14 @@ const Connect = () => {
                     placeholder=" "
                     type="text"
                   />
-                  <label className="key">Phone</label>
+                  <label htmlFor="phone" className="key">
+                    Phone
+                  </label>
                 </div>
                 <div className="form_row">
-                  <label className="key">Messege / Prayer Request</label>
+                  <label htmlFor="msg" className="key">
+                    Messege / Prayer Request
+                  </label>
                   <textarea
                     value={item.userMessage}
                     name="userMessage"

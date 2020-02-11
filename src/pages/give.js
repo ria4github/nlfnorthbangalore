@@ -16,7 +16,7 @@ const GivePage = () => {
             <div className={`col l6 leftList`}>
               <div className="static">
                 <div className="illust">
-                  <img src={give_illust} />
+                  <img alt={give_illust} src={give_illust} />
                 </div>
                 <h4 className="med-heading-ttl">
                   <span>
@@ -44,23 +44,29 @@ const GivePage = () => {
                     <small>We'll send you a mail with our details</small>
                     <div className="formImg">
                       {formTrig === "online" ? (
-                        <img src={online_illust} />
+                        <img alt={online_illust} src={online_illust} />
                       ) : null}
                       {formTrig === "cheque" ? (
-                        <img src={cheque_illust} />
+                        <img alt={cheque_illust} src={cheque_illust} />
                       ) : null}
                     </div>
                     <div className="form_row labelPlaceholder">
-                      <input placeholder=" " type="text" />
-                      <label className="key">Name</label>
+                      <input id="name" placeholder=" " type="text" />
+                      <label htmlFor="name" className="key">
+                        Name
+                      </label>
                     </div>
                     <div className="form_row labelPlaceholder">
-                      <input placeholder=" " type="text" />
-                      <label className="key">Email</label>
+                      <input id="email" placeholder=" " type="text" />
+                      <label htmlFor="email" className="key">
+                        Email
+                      </label>
                     </div>
                     <div className="form_row labelPlaceholder">
-                      <input placeholder=" " type="text" />
-                      <label className="key">Phone</label>
+                      <input id="phone" placeholder=" " type="text" />
+                      <label htmlFor="phone" className="key">
+                        Phone
+                      </label>
                     </div>
                     <div className="form_row">
                       <div className="actions">
@@ -74,11 +80,13 @@ const GivePage = () => {
             <div className={`col l6 rightList }`}>
               <div className="slide">
                 <div
+                  tabIndex="0"
+                  role="button"
                   className="item online"
                   onClick={() => setFormTrig("online")}
                 >
                   <div className="img_dec_wrap">
-                    <img src={online_illust}></img>
+                    <img alt={online_illust} src={online_illust}></img>
                     <span>Online Banking</span>
                     <small className="solid">
                       Proceed <FiChevronRight />{" "}
@@ -88,9 +96,11 @@ const GivePage = () => {
                 <div
                   className="item offline"
                   onClick={() => setFormTrig("cheque")}
+                  tabIndex="0"
+                  role="button"
                 >
                   <div className="img_dec_wrap">
-                    <img src={cheque_illust}></img>
+                    <img alt={cheque_illust} src={cheque_illust}></img>
                     <span>Cheque</span>
                     <small className="solid">
                       Proceed <FiChevronRight />{" "}

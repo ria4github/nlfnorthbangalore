@@ -1,0 +1,198 @@
+#about {
+  #tada {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5, 0.7);
+  }
+  .section_structure {
+    .section {
+      min-height: calc(100vh - 82px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+
+      &.section-1 {
+        padding-top: 80px;
+        min-height: 100vh;
+      }
+      .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        @include respondToBelow(sm) {
+          flex-wrap: wrap;
+          flex-direction: column-reverse !important;
+        }
+        width: 100%;
+        .descPart {
+          min-width: 60%;
+          font-size: 16px;
+          line-height: 1.5;
+          text-align: right;
+          padding-right: 50px;
+          @include respondToBelow(sm) {
+            min-width: 100%;
+            padding: 30px 15px !important;
+            font-size: 13px;
+            text-align: left;
+          }
+          p {
+            & ~ p {
+              margin-top: 15px;
+            }
+          }
+          .modernLine {
+            margin-top: 35px;
+            @include respondToBelow(sm) {
+              display: none;
+            }
+          }
+        }
+        .theimg {
+          min-width: 40%;
+          @include respondToBelow(sm) {
+            min-width: 100%;
+            padding: 30px 30px 0;
+          }
+          img {
+            clip-path: polygon(25% 1%, 89% 20%, 100% 100%, 0% 100%);
+            animation: clip_path 30s infinite linear;
+            transition: all 0.25s;
+          }
+        }
+      }
+      &:nth-child(odd) {
+        background: $black_bg;
+        .container {
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+          .theimg {
+            img {
+              animation: clip_path 30s infinite linear reverse;
+            }
+          }
+          .descPart {
+            padding-right: 0;
+            padding-left: 50px;
+            color: #fff;
+            text-align: left;
+            .modernLine {
+              span,
+              &:after,
+              &:before {
+                background: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .section-2 {
+      .theimg {
+        img {
+          animation-delay: 0.6s;
+        }
+      }
+    }
+    .section-3 {
+      .theimg {
+        img {
+          animation-delay: 1.5s;
+        }
+      }
+    }
+    .section-4 {
+      .theimg {
+        img {
+          animation-delay: 0.8s;
+        }
+      }
+    }
+    .section-5 {
+      .theimg {
+        img {
+          animation-delay: 0.35s;
+        }
+      }
+    }
+    .section-6 {
+      .theimg {
+        img {
+          animation-delay: 1s;
+        }
+      }
+    }
+    .vision {
+      ul {
+        li {
+          margin-top: 10px;
+          strong {
+            color: $dark_base_color;
+            border-left: solid 2px #fff;
+            font-weight: bold;
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+    .devine {
+      background: #fff;
+    }
+    .values {
+      .theimg {
+        // min-width: 40% !important;
+      }
+      .descPart {
+        text-align: center !important;
+        // min-width: 60% !important;
+        .griddo {
+          display: flex;
+          flex-wrap: wrap;
+          > div {
+            width: 33.333%;
+            padding: 10px;
+            display: flex;
+            text-align: left;
+
+            .inner {
+              padding: 10px;
+              font-size: 13px;
+              height: 100%;
+              strong {
+                display: block;
+                margin-bottom: 10px;
+              }
+              li {
+                list-style: circle;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes clip_path {
+  from {
+    clip-path: polygon(25% 1%, 89% 20%, 100% 100%, 0% 100%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(26% 22%, 100% 0, 86% 70%, 6% 76%);
+  }
+  75% {
+    clip-path: polygon(5% 14%, 85% 0, 86% 100%, 15% 65%);
+  }
+  to {
+    clip-path: polygon(25% 1%, 89% 20%, 100% 100%, 0% 100%);
+  }
+}

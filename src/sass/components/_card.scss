@@ -4,6 +4,9 @@
 
   &:not(.no-shadow) {
     @include card_shadow;
+    &.normal {
+      @include shadow;
+    }
   }
   &.noPad {
     padding: 0;
