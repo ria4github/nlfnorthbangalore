@@ -34,6 +34,8 @@ const Header = ({ siteTitle }) => {
         <nav id="nav-menu-container">
           <div className="visible-xs toggle">
             <div
+              tabIndex={0}
+              role="button"
               onClick={() => setMenu(!menu)}
               className={`menu ${menu ? "active" : "inactive"}`}
             >

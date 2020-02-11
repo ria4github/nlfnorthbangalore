@@ -7,7 +7,6 @@ import {
   FiPhone,
   FiMail
 } from "react-icons/fi";
-import FooterSVG from "./svgjsx/FooterSVG";
 
 const Footer = () => {
   return (

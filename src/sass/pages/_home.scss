@@ -11,6 +11,7 @@
     @include respondToBelow(sm) {
       min-height: 70vh;
       background-position: bottom center;
+      background-size: auto 100%;
     }
     &:after {
       content: "";
@@ -123,7 +124,10 @@ section {
   .splitRow {
     margin: 15px 0 0;
     background: #fff;
-    padding: 15px 0;
+    padding: 0;
+    @include respondToBelow(sm) {
+      padding: 15px 0;
+    }
     .col {
       display: flex;
       align-items: center;
