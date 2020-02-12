@@ -1,14 +1,11 @@
 import React from "react";
+import Layout from "../components/Layout";
 
 const sermons = () => {
   return (
-    <div>
-      <div id="nue">
-        <div className="tada">
-          <h1>Sermons</h1>
-        </div>
-      </div>
-    </div>
+    <Layout>
+      <div id="Sermons"></div>
+    </Layout>
   );
 };
 

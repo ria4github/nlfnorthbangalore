@@ -21,6 +21,28 @@
     .nav-menu {
       li {
         transition: all 0.35s;
+        &.comingSoon {
+          a {
+            position: relative;
+            pointer-events: none;
+            &:after {
+              content: "Coming Soon";
+              position: absolute;
+              top: 100%;
+              left: 0;
+              margin: auto;
+              text-align: center;
+              white-space: nowrap;
+              font-size: 8px;
+              color: $dark_base_color;
+              @include respondToBelow(sm) {
+                bottom: 4px;
+                top: auto;
+                left: 26px;
+              }
+            }
+          }
+        }
         a {
           transition: all 0.35s;
           color: $white;
@@ -149,8 +171,10 @@
   #nav-menu-container {
     .nav-menu {
       li {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        @include respondToAbove(sm) {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
         a {
           color: $black_bg;
         }
@@ -211,6 +235,7 @@
           height: 2px;
           border-radius: 1px;
           background: $white;
+          #page:not(.fixed_top) &,
           .true & {
             background: $black_bg;
           }
@@ -235,7 +260,8 @@
       display: block;
       fill: none;
       stroke: $white;
-      .true & {
+      .true &,
+      #page:not(.fixed_top) & {
         stroke: $black_bg;
       }
       stroke-width: 2px;

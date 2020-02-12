@@ -13,6 +13,7 @@ const Connect = () => {
     userName: "",
     userMail: "",
     userPhone: "",
+    userLifeGroup: "",
     userMessage: ""
   };
 
@@ -57,7 +58,7 @@ const Connect = () => {
       <div id="connect">
         <div className="container">
           <div className="row largeSpacing">
-            <div className="col l7 leftList">
+            <div className="col l7 s12 leftList">
               <div className="flexIt">
                 <div className="illust">
                   <img src={connect_illust} alt={connect_illust} />
@@ -80,11 +81,9 @@ const Connect = () => {
                 <GMap />
               </div>
             </div>
-            <div className="col l5 rightList">
+            <div className="col l5 s12 rightList">
               <form className="card" onSubmit={sendDetails}>
-                <h4 className="main-heading-ttl">
-                  We'd love to know you and pray with you !
-                </h4>
+                <h4 className="main-heading-ttl">Connect with us</h4>
                 <div className="form_row labelPlaceholder">
                   <input
                     value={item.userName}
@@ -120,6 +119,15 @@ const Connect = () => {
                   <label htmlFor="phone" className="key">
                     Phone
                   </label>
+                </div>
+                <div className="form_row labelPlaceholder">
+                  <select>
+                    <option value="Hebbal">Hebbal</option>
+                    <option value="Amruthahalli">Amruthahalli</option>
+                    <option value="Vidyaranayapura">Vidyaranayapura</option>
+                    <option value="Kogilu">Kogilu</option>
+                    <option value="Puttenahalli">Puttenahalli</option>
+                  </select>
                 </div>
                 <div className="form_row">
                   <label htmlFor="msg" className="key">

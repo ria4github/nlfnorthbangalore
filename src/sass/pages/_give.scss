@@ -1,7 +1,35 @@
 #give {
   padding: 25px 0;
+
+  @include respondToBelow(sm) {
+    padding: 0;
+  }
   .row {
     align-items: flex-start;
+    @include respondToBelow(sm) {
+      flex-direction: column;
+      margin: 0;
+      .l6 {
+        padding: 0;
+        .static {
+          padding: 0 30px;
+        }
+        .formList {
+          padding: 0 15px;
+          .close {
+            right: -15px;
+            top: -15px;
+            height: 40px;
+            width: 60px;
+
+            svg {
+              height: 20px;
+              width: 20px;
+            }
+          }
+        }
+      }
+    }
     > div {
       transform-origin: top center;
       .static {
@@ -126,121 +154,201 @@
   }
   .rightList {
     display: flex;
-    .slide {
-      display: flex;
+    @include respondToBelow(sm) {
       width: 100%;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      height: 70vh;
-      > div {
-        width: 100%;
-        flex: 1 0 0;
-        position: relative;
-        z-index: 2;
+    }
+    .slide {
+      @include respondToBelow(sm) {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        transition: all 0.35s;
-        border-radius: 15px;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+
+        z-index: 99;
+        padding: 5px;
+        .slideBg {
+          display: none;
+        }
+        .active {
+          & ~ .slideBg {
+            display: block;
+            position: absolute;
+            width: calc(50% - 15px);
+            top: 10px;
+            bottom: 10px;
+            margin: auto;
+            left: 10px;
+            transition: all 0.35s;
+            background: linear-gradient(
+              45deg,
+              $dark_base_color,
+              $dark_base_color_2
+            );
+            z-index: 0;
+          }
+        }
+        .offline.active {
+          & + .slideBg {
+            left: calc(50% + 5px);
+          }
+        }
+        > div {
+          position: relative;
+          z-index: 2;
+          width: 50%;
+          padding: 5px;
+          &.active {
+            .img_dec_wrap {
+              border: 0;
+              color: #fff;
+            }
+          }
+        }
         .img_dec_wrap {
           display: flex;
+          height: 100%;
           flex-direction: column;
+          justify-content: space-between;
           align-items: center;
-
-          img {
-            transition: all 0.35s;
-            width: 20%;
-          }
+          border: solid 1px #ddd;
+          padding: 10px;
           span {
-            transition: all 0.35s;
-            height: 40px;
+            line-height: 1.5;
+            text-align: center;
+            white-space: nowrap;
           }
-          small {
-            width: 50%;
-            justify-content: flex-end;
-            transition: all 0.35s;
-            display: flex;
-            align-items: center;
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
-            visibility: hidden;
+          img {
+            display: none;
+          }
+          .solid {
+            display: none;
           }
         }
-        &:not(.slideBg) {
-          border: solid 1px $border_color;
-          &:hover {
-            span {
-              height: 0;
-              overflow: hidden;
-            }
+      }
+      @include respondToAbove(md) {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        height: 70vh;
+
+        > div {
+          width: 100%;
+          flex: 1 0 0;
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 25px;
+          transition: all 0.35s;
+          border-radius: 15px;
+          .img_dec_wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
             img {
-              transform: translateX(-100%);
-              width: 30%;
+              transition: all 0.35s;
+              width: 20%;
+            }
+            span {
+              transition: all 0.35s;
+              height: 40px;
             }
             small {
-              visibility: visible;
-              justify-content: center;
-              bottom: 50%;
-              transform: translateY(calc(50%));
-              font-size: 35px;
-              color: #fff;
-              transition: all 0.35s, color 0.35s 0.35s;
+              width: 50%;
+              justify-content: flex-end;
+              transition: all 0.35s;
+              display: flex;
+              align-items: center;
+              position: absolute;
+              right: 10px;
+              bottom: 10px;
+              visibility: hidden;
             }
           }
-        }
-        cursor: pointer;
+          &:not(.slideBg) {
+            border: solid 1px $border_color;
 
-        &.slideBg {
-          position: absolute;
-          top: 0;
-          height: 100%;
-          left: 0;
-          right: 0;
-          z-index: 1;
-          transform: translateY(100%);
-          transition: all 0.35s;
-          background: linear-gradient(
-            45deg,
-            $dark_base_color,
-            $dark_base_color_2
-          );
-          &:before {
-            content: "";
-            position: absolute;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border-radius: 10px;
-            top: 15px;
-            background: #fff;
-            @include shadow;
+            &:hover {
+              span {
+                height: 0;
+                overflow: hidden;
+              }
+              img {
+                transform: translateX(-100%);
+                width: 30%;
+              }
+              small {
+                visibility: visible;
+                justify-content: center;
+                bottom: 50%;
+                transform: translateY(calc(50%));
+                font-size: 35px;
+                color: #fff;
+                transition: all 0.35s, color 0.35s 0.35s;
+              }
+            }
           }
-        }
-      }
-      .online {
-        margin-bottom: 50px;
-        &:hover {
-          & ~ .slideBg {
-            height: calc(50% - 25px);
-            transform: translateY(0%);
-            &::before {
-              transition: all 0.35s 0.35s;
-              right: 50%;
+          cursor: pointer;
+
+          &.slideBg {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            transform: translateY(100%);
+            transition: all 0.35s;
+            background: linear-gradient(
+              45deg,
+              $dark_base_color,
+              $dark_base_color_2
+            );
+            @include respondToBelow(sm) {
+              display: none;
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              left: 15px;
+              right: 15px;
+              bottom: 15px;
+              border-radius: 10px;
+              top: 15px;
+              background: #fff;
+              @include shadow;
             }
           }
         }
-      }
-      .offline {
-        &:hover {
-          & ~ .slideBg {
-            height: calc(50% - 25px);
-            transform: translateY(calc(100% + 50px));
-            &::before {
-              transition: all 0.35s 0.35s;
-              right: 50%;
+        .online {
+          margin-bottom: 50px;
+          &:hover {
+            & ~ .slideBg {
+              height: calc(50% - 25px);
+              transform: translateY(0%);
+              &::before {
+                transition: all 0.35s 0.35s;
+                right: 50%;
+              }
+            }
+          }
+        }
+        .offline {
+          &:hover {
+            & ~ .slideBg {
+              height: calc(50% - 25px);
+              transform: translateY(calc(100% + 50px));
+              &::before {
+                transition: all 0.35s 0.35s;
+                right: 50%;
+              }
             }
           }
         }
