@@ -3,9 +3,11 @@ import Layout from "../components/Layout";
 import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
-// import { firestore, functions } from "../Firestore";
+import { firestore, functions } from "../Firestore";
 
 const Connect = () => {
+  // console.log(process.env.FIRE_STORE_KEY);
+
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
@@ -21,29 +23,29 @@ const Connect = () => {
 
   const sendDetails = event => {
     event.preventDefault();
-    console.log(item);
-    // These lines are new
-    // if (
-    //   item.userName.length &&
-    //   item.userMail.length &&
-    //   item.userPhone.length &&
-    //   item.userMessage.length
-    // ) {
-    //   firestore
-    //     .collection("connect_data")
-    //     .doc()
-    //     .set(item)
-    //     .then(() => {
-    //       setItem(initialItemValues);
-    //       setSuccess(
-    //         "Thanks....! We have recieved your request. We will get back to you soon."
-    //       );
-    //     })
-    //     .catch(error => {
-    //       console.error(error);
-    //       setError("Ooops....! Somthing went wrong.");
-    //     });
-    // }
+    // console.log(item);
+    if (
+      item.userName.length &&
+      item.userMail.length &&
+      item.userPhone.length &&
+      item.userLifeGroup.length &&
+      item.userMessage.length
+    ) {
+      firestore
+        .collection("connect_data")
+        .doc()
+        .set(item)
+        .then(() => {
+          setItem(initialItemValues);
+          setSuccess(
+            "Thanks....! We have recieved your request. We will get back to you soon."
+          );
+        })
+        .catch(error => {
+          console.error(error);
+          setError("Ooops....! Somthing went wrong.");
+        });
+    }
   };
 
   const onChange = e => {
@@ -121,7 +123,7 @@ const Connect = () => {
                   </label>
                 </div>
                 <div className="form_row labelPlaceholder">
-                  <select>
+                  <select name="userLifeGroup" onChange={e => onChange(e)}>
                     <option value="Hebbal">Hebbal</option>
                     <option value="Amruthahalli">Amruthahalli</option>
                     <option value="Vidyaranayapura">Vidyaranayapura</option>
