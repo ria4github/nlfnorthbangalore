@@ -167,7 +167,7 @@ select,
   width: 100%;
   position: relative;
   & ~ .form_row {
-    margin-top: 25px;
+    margin-top: 15px;
   }
   &.flexible {
     @include flex;
@@ -255,7 +255,7 @@ select,
       padding: 0;
       border-radius: 0;
       height: 35px;
-      background: transparent;
+      background-color: transparent;
       &:not(:placeholder-shown),
       &:focus {
         box-shadow: none;

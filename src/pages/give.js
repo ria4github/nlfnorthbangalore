@@ -13,7 +13,7 @@ const GivePage = () => {
       <div id="give">
         <div className="container">
           <div className={`row largeSpacing ${formTrig ? "shrink" : ""}`}>
-            <div className={`col l6 leftList`}>
+            <div className={`col l6 s12 leftList`}>
               <div className="static">
                 <div className="illust">
                   <img alt={give_illust} src={give_illust} />
@@ -77,12 +77,14 @@ const GivePage = () => {
                 ) : null}
               </div>
             </div>
-            <div className={`col l6 rightList }`}>
+            <div className={`col l6 s12 rightList }`}>
               <div className="slide">
                 <div
                   tabIndex="0"
                   role="button"
-                  className="item online"
+                  className={`item online ${
+                    formTrig === "online" ? "active" : "inactive"
+                  }`}
                   onClick={() => setFormTrig("online")}
                 >
                   <div className="img_dec_wrap">
@@ -94,7 +96,9 @@ const GivePage = () => {
                   </div>
                 </div>
                 <div
-                  className="item offline"
+                  className={`item offline ${
+                    formTrig === "cheque" ? "active" : "inactive"
+                  }`}
                   onClick={() => setFormTrig("cheque")}
                   tabIndex="0"
                   role="button"

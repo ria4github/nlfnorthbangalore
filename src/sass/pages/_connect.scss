@@ -1,9 +1,33 @@
 #connect {
   padding: 25px 0;
+  @include respondToBelow(sm) {
+    padding: 0;
+  }
   .row {
     align-items: center;
+    @include respondToBelow(sm) {
+      flex-direction: column;
+      margin: 0;
+      > div {
+        width: 100%;
+        padding: 0 30px;
+      }
+    }
   }
   .leftList {
+    @include respondToBelow(sm) {
+      padding: 30px;
+      .flexIt {
+        flex-direction: column;
+        > * {
+          width: 100%;
+          padding: 0;
+        }
+        ul {
+          padding: 15px;
+        }
+      }
+    }
     .illust {
       display: flex;
       align-items: center;
@@ -36,6 +60,13 @@
       border: solid 2px $border_color;
       border-radius: 15px;
       overflow: hidden;
+
+      @include respondToBelow(sm) {
+        margin-top: 15px;
+        iframe {
+          height: 150px;
+        }
+      }
       .gmaps {
         width: 100%;
         iframe {
@@ -46,6 +77,9 @@
     }
   }
   .rightList {
+    @include respondToBelow(sm) {
+      padding: 30px !important;
+    }
     form {
       h4 {
         text-align: center;
@@ -54,6 +88,33 @@
         .actions {
           button {
             width: 100%;
+          }
+        }
+        .flexIt {
+          margin: 0 -10px;
+          flex-wrap: wrap;
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px;
+            span {
+              padding: 3px 10px;
+              font-size: 14px;
+              border-radius: 5px;
+              color: $dark_base_color;
+              border: solid 1px $dark_base_color;
+            }
+            input {
+              position: absolute;
+              opacity: 0;
+              &:checked {
+                & + span {
+                  background: $dark_base_color;
+                  color: #fff;
+                }
+              }
+            }
           }
         }
       }

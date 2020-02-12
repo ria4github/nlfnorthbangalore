@@ -67,13 +67,13 @@ const Header = ({ siteTitle }) => {
                 <img alt="logo" src={logoWhite} />
               </Link>
             </li>
-            <li>
+            <li className="comingSoon">
               <Link to="/blog">Blogs</Link>
             </li>
             <li>
-              <Link to="/sermons">Ministries</Link>
+              <Link to="/ministries">Ministries</Link>
             </li>
-            <li>
+            <li className="comingSoon">
               <Link to="/sermons">Sermons</Link>
             </li>
             <li>
