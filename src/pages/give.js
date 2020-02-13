@@ -4,9 +4,63 @@ import Layout from "../components/Layout";
 import give_illust from "../images/give_illust.svg";
 import online_illust from "../images/online_illust.svg";
 import cheque_illust from "../images/cheque_illust.svg";
+import { firestore, functions } from "../Firestore";
 
 const GivePage = () => {
-  const [formTrig, setFormTrig] = useState(null);
+  const [formTrig, setFormTrig] = useState("");
+
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const initialItemValues = {
+    giveName: "",
+    giveEmail: "",
+    givePhone: "",
+    giveType: ""
+  };
+
+  const [item, setItem] = useState(initialItemValues);
+  console.log(item);
+
+  const sendDetails = event => {
+    event.preventDefault();
+    // console.log(item);
+    if (
+      item.giveName.length &&
+      item.giveEmail.length &&
+      item.givePhone.length &&
+      item.giveType.length
+    ) {
+      firestore
+        .collection("give_data")
+        .doc()
+        .set(item)
+        .then(() => {
+          setItem(initialItemValues);
+          setSuccess(
+            "Thanks....! We have recieved your request. We will get back to you soon."
+          );
+        })
+        .catch(error => {
+          console.error(error);
+          setError("Ooops....! Somthing went wrong.");
+        });
+    }
+  };
+
+  const onChange = e => {
+    if (e.target) {
+      setItem({
+        ...item,
+        [e.target.name]: e.target.value
+      });
+    } else {
+      setItem({
+        ...item,
+        giveType: e
+      });
+    }
+  };
 
   return (
     <Layout page="give">
@@ -34,10 +88,10 @@ const GivePage = () => {
               </div>
               <div className="formList">
                 {formTrig ? (
-                  <form className="card">
+                  <form className="card" onSubmit={sendDetails}>
                     <h4 className="main-heading-ttl">
                       <span className="close">
-                        <FiX onClick={() => setFormTrig(null)} />
+                        <FiX onClick={() => setFormTrig("")} />
                       </span>
                       <span className="title">{formTrig}</span>
                     </h4>
@@ -51,22 +105,48 @@ const GivePage = () => {
                       ) : null}
                     </div>
                     <div className="form_row labelPlaceholder">
-                      <input id="name" placeholder=" " type="text" />
+                      <input
+                        name="giveName"
+                        onChange={e => onChange(e)}
+                        id="name"
+                        placeholder=" "
+                        type="text"
+                      />
                       <label htmlFor="name" className="key">
                         Name
                       </label>
                     </div>
                     <div className="form_row labelPlaceholder">
-                      <input id="email" placeholder=" " type="text" />
+                      <input
+                        name="giveEmail"
+                        onChange={e => onChange(e)}
+                        id="email"
+                        placeholder=" "
+                        type="text"
+                      />
                       <label htmlFor="email" className="key">
                         Email
                       </label>
                     </div>
                     <div className="form_row labelPlaceholder">
-                      <input id="phone" placeholder=" " type="text" />
+                      <input
+                        name="givePhone"
+                        onChange={e => onChange(e)}
+                        id="phone"
+                        placeholder=" "
+                        type="text"
+                      />
                       <label htmlFor="phone" className="key">
                         Phone
                       </label>
+                    </div>
+                    <div className="form_row">
+                      {success && (
+                        <span className="wb-alert wb-success">{success}</span>
+                      )}
+                      {error && (
+                        <span className="wb-alert wb-error">{error}</span>
+                      )}
                     </div>
                     <div className="form_row">
                       <div className="actions">
@@ -85,7 +165,10 @@ const GivePage = () => {
                   className={`item online ${
                     formTrig === "online" ? "active" : "inactive"
                   }`}
-                  onClick={() => setFormTrig("online")}
+                  onClick={() => {
+                    setFormTrig("online");
+                    onChange("online");
+                  }}
                 >
                   <div className="img_dec_wrap">
                     <img alt={online_illust} src={online_illust}></img>
@@ -99,7 +182,10 @@ const GivePage = () => {
                   className={`item offline ${
                     formTrig === "cheque" ? "active" : "inactive"
                   }`}
-                  onClick={() => setFormTrig("cheque")}
+                  onClick={() => {
+                    setFormTrig("cheque");
+                    onChange("cheque");
+                  }}
                   tabIndex="0"
                   role="button"
                 >

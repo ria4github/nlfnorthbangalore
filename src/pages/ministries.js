@@ -10,7 +10,7 @@ const Ministries = () => {
           <div className="miniGrid">
             <div className="flipcard">
               <div className="content">
-                <div className="front">
+                <div className="front youth">
                   <div className="inner">
                     <h4 className="med-heading-ttl">Youth</h4>
                   </div>
@@ -33,7 +33,7 @@ const Ministries = () => {
             </div>
             <div className="flipcard">
               <div className="content">
-                <div className="front">
+                <div className="front kids">
                   <div className="inner">
                     <h4 className="med-heading-ttl">Kids</h4>
                   </div>
@@ -56,7 +56,7 @@ const Ministries = () => {
             </div>
             <div className="flipcard">
               <div className="content">
-                <div className="front">
+                <div className="front lifegroup">
                   <div className="inner">
                     <h4 className="med-heading-ttl">Life Group</h4>
                   </div>
@@ -78,8 +78,8 @@ const Ministries = () => {
               </div>
             </div>
             <div className="flipcard">
-              <div className="content">
-                <div className="front">
+              <div className="content ">
+                <div className="front care">
                   <div className="inner">
                     <h4 className="med-heading-ttl">Care & Counselling</h4>
                   </div>
@@ -102,7 +102,7 @@ const Ministries = () => {
             </div>
             <div className="flipcard">
               <div className="content">
-                <div className="front">
+                <div className="front worship">
                   <div className="inner">
                     <h4 className="med-heading-ttl">Worship</h4>
                   </div>
@@ -125,7 +125,7 @@ const Ministries = () => {
             </div>
             <div className="flipcard">
               <div className="content">
-                <div className="front">
+                <div className="front prayer">
                   <div className="inner">
                     <h4 className="med-heading-ttl">Prayer</h4>
                   </div>

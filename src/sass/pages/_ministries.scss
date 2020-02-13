@@ -3,23 +3,38 @@
     padding-top: 82px;
     padding-bottom: 140px;
     min-height: 100vh;
+    @include respondToBelow(sm) {
+      padding: 0;
+    }
     .main-heading-ttl {
       margin-top: -25px;
       text-align: center;
       font-size: 4vw;
+      @include respondToBelow(sm) {
+        font-size: 8vw;
+        margin: 0;
+      }
     }
     .miniGrid {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include respondToBelow(sm) {
+        padding: 25px;
+      }
       > div {
-        width: calc(33.333% - 50px / 2);
-        margin-bottom: 35px;
-        &:nth-child(3n + 2) {
-          transform: translateY(70px);
+        @include respondToAbove(md) {
+          width: calc(33.333% - 50px / 2);
+          margin-bottom: 35px;
+          &:nth-child(3n + 2) {
+            transform: translateY(70px);
+          }
+          &:nth-child(3n + 1) {
+            transform: translateY(140px);
+          }
         }
-        &:nth-child(3n + 1) {
-          transform: translateY(140px);
+        @include respondToBelow(sm) {
+          margin-bottom: 25px;
         }
       }
     }
@@ -55,7 +70,7 @@
     border-radius: 6px;
     .inner {
       height: 100%;
-      padding: 1.5em;
+      padding: 30px;
       transform: translateZ(80px) scale(0.94);
     }
   }
@@ -63,33 +78,56 @@
     background-color: #fff;
     background-size: cover;
     background-position: center center;
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 6px;
-      backface-visibility: hidden;
-      background: linear-gradient(40deg, $dark_base_color, $dark_base_color_2);
+    &.care {
+      background-image: url(../images/care.jpg);
+    }
+    &.youth {
+      background-image: url(../images/youth.jpg);
+    }
+    &.prayer {
+      background-image: url(../images/prayer.jpg);
+    }
+    &.kids {
+      background-image: url(../images/kids.jpg);
+    }
+    &.worship {
+      background-image: url(../images/worship.jpg);
+    }
+    &.lifegroup {
+      background-image: url(../images/lifegroup.jpg);
     }
     .inner {
-      grid-template-rows: 5fr 1fr 1fr 2fr 1fr;
-      justify-items: center;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: flex-end;
     }
+
     h4 {
-      color: #fff;
+      font-size: 35px;
+      background: #fff;
+      font-weight: 900;
+      color: $black_bg;
+      padding: 10px 25px;
+      margin: 0;
+      @include shadow;
+      @include respondToBelow(sm) {
+        font-size: 20px;
+        width: 100%;
+        text-align: center;
+      }
     }
   }
 
   .back {
     position: static;
     transform: rotateY(180deg);
-    background-color: #fff;
-    border: 2px solid rgb(240, 240, 240);
+    background: linear-gradient(40deg, $dark_base_color, $dark_base_color_2);
     padding: 15px;
+    .inner {
+      @include respondToBelow(sm) {
+        padding: 0;
+      }
+    }
     .description {
       border-radius: 5px;
       line-height: 1.5;
@@ -98,7 +136,9 @@
       overflow: hidden;
       text-align: justify;
       font-size: 14px;
+      color: #fff;
       padding-right: 10px;
+      backface-visibility: none;
     }
   }
 }
