@@ -22,12 +22,19 @@ const db = admin.firestore();
 
 const sendEmail = doc => {
   console.log(doc.data());
-  let subject;
+  let subject, html;
   if (doc.data().userName) {
     subject = `You have new message from ${doc.data().userName}`;
   } else if (doc.data().giveName) {
     subject = `You have new Offerning request from ${doc.data().giveName}`;
   }
+
+  if (doc.data().userName) {
+    subject = `You have new message from ${doc.data().userName}`;
+  } else if (doc.data().giveName) {
+    subject = `You have new Offerning request from ${doc.data().giveName}`;
+  }
+
   const msg = {
     to: "praveen@antstack.io",
     from: "praveengorakala@gmail.com",
