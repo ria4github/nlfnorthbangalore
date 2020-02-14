@@ -110,6 +110,7 @@ const GivePage = () => {
                         onChange={e => onChange(e)}
                         id="name"
                         placeholder=" "
+                        value={item.giveName}
                         type="text"
                       />
                       <label htmlFor="name" className="key">
@@ -122,6 +123,7 @@ const GivePage = () => {
                         onChange={e => onChange(e)}
                         id="email"
                         placeholder=" "
+                        value={item.giveEmail}
                         type="text"
                       />
                       <label htmlFor="email" className="key">
@@ -134,6 +136,7 @@ const GivePage = () => {
                         onChange={e => onChange(e)}
                         id="phone"
                         placeholder=" "
+                        value={item.givePhone}
                         type="text"
                       />
                       <label htmlFor="phone" className="key">
