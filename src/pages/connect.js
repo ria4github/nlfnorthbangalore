@@ -123,7 +123,14 @@ const Connect = () => {
                   </label>
                 </div>
                 <div className="form_row labelPlaceholder">
-                  <select name="userLifeGroup" onChange={e => onChange(e)}>
+                  <select
+                    name="userLifeGroup"
+                    value={item.userLifeGroup}
+                    onChange={e => onChange(e)}
+                  >
+                    <option disabled={true} value={""}>
+                      Select Life Group
+                    </option>
                     <option value="Hebbal">Hebbal</option>
                     <option value="Amruthahalli">Amruthahalli</option>
                     <option value="Vidyaranayapura">Vidyaranayapura</option>
