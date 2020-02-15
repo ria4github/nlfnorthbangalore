@@ -3,13 +3,15 @@ import Layout from "../components/Layout";
 import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
-import { firestore, functions } from "../Firestore";
+import { firestore } from "../Firestore";
+import Loader from "../components/Loader";
 
 const Connect = () => {
   // console.log(process.env.FIRE_STORE_KEY);
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [doLoad, setDoLoad] = useState(false);
 
   const initialItemValues = {
     userName: "",
@@ -24,6 +26,7 @@ const Connect = () => {
   const sendDetails = event => {
     event.preventDefault();
     // console.log(item);
+    setDoLoad(true);
     if (
       item.userName.length &&
       item.userMail.length &&
@@ -36,6 +39,7 @@ const Connect = () => {
         .doc()
         .set(item)
         .then(() => {
+          setDoLoad(false);
           setItem(initialItemValues);
           setSuccess(
             "Thanks....! We have recieved your request. We will get back to you soon."
@@ -43,12 +47,15 @@ const Connect = () => {
         })
         .catch(error => {
           console.error(error);
+          setDoLoad(false);
           setError("Ooops....! Somthing went wrong.");
         });
     }
   };
 
   const onChange = e => {
+    setSuccess("");
+    setError("");
     setItem({
       ...item,
       [e.target.name]: e.target.value
@@ -160,10 +167,14 @@ const Connect = () => {
                     {!item.userName.length ||
                     !item.userMail.length ||
                     !item.userPhone.length ||
+                    !item.userLifeGroup.length ||
                     !item.userMessage.length ? (
                       <button disabled>Submit</button>
                     ) : (
-                      <button>Submit</button>
+                      <button>
+                        {doLoad ? <Loader inline /> : null}
+                        Submit
+                      </button>
                     )}
                   </div>
                 </div>

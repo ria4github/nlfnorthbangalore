@@ -5,18 +5,20 @@ import give_illust from "../images/give_illust.svg";
 import online_illust from "../images/online_illust.svg";
 import cheque_illust from "../images/cheque_illust.svg";
 import { firestore, functions } from "../Firestore";
+import Loader from "../components/Loader";
 
 const GivePage = () => {
   const [formTrig, setFormTrig] = useState("");
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [doLoad, setDoLoad] = useState(false);
 
   const initialItemValues = {
     giveName: "",
     giveEmail: "",
     givePhone: "",
-    giveType: ""
+    giveType: formTrig
   };
 
   const [item, setItem] = useState(initialItemValues);
@@ -25,6 +27,7 @@ const GivePage = () => {
   const sendDetails = event => {
     event.preventDefault();
     // console.log(item);
+    setDoLoad(true);
     if (
       item.giveName.length &&
       item.giveEmail.length &&
@@ -37,18 +40,22 @@ const GivePage = () => {
         .set(item)
         .then(() => {
           setItem(initialItemValues);
+          setDoLoad(false);
           setSuccess(
             "Thanks....! We have recieved your request. We will get back to you soon."
           );
         })
         .catch(error => {
           console.error(error);
+          setDoLoad(false);
           setError("Ooops....! Somthing went wrong.");
         });
     }
   };
 
   const onChange = e => {
+    setSuccess("");
+    setError("");
     if (e.target) {
       setItem({
         ...item,
@@ -153,7 +160,17 @@ const GivePage = () => {
                     </div>
                     <div className="form_row">
                       <div className="actions">
-                        <button>Submit</button>
+                        {!item.giveName.length ||
+                        !item.giveEmail.length ||
+                        !item.givePhone.length ||
+                        !item.giveType.length ? (
+                          <button disabled>Submit</button>
+                        ) : (
+                          <button>
+                            {doLoad ? <Loader inline /> : null}
+                            Submit
+                          </button>
+                        )}
                       </div>
                     </div>
                   </form>
