@@ -1,0 +1,116 @@
+#Sermons {
+  .sermonList {
+    .sermonItem {
+      margin-top: 50px;
+      .react-player {
+        display: none;
+      }
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      .player {
+        display: flex;
+        width: 100%;
+        .aart {
+          position: relative;
+          img {
+            min-width: 150px;
+            height: 150px;
+          }
+          &.playing {
+            img {
+              animation: playing 50s linear infinite;
+              border-radius: 100px;
+              transition: all 0.25s;
+            }
+          }
+        }
+        .rest {
+          padding-left: 50px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          .top {
+            display: flex;
+            margin-bottom: 15px;
+            .left {
+              flex: 1 0 0;
+              .author {
+                color: $dark_base_color;
+                margin-right: 25px;
+              }
+            }
+            .right {
+              width: 150px;
+              display: flex;
+              button {
+                min-width: 0;
+                height: 75px;
+                width: 75px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 75px;
+                svg {
+                  height: 25px;
+                  width: 25px;
+                }
+                & ~ button {
+                  transform: scale(0.75);
+                }
+              }
+            }
+            .main-heading-ttl {
+              margin-bottom: 0;
+            }
+          }
+          .seekbar {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.75s;
+            padding: 0 25px;
+            > div {
+              width: 100%;
+              height: 5px;
+              cursor: pointer;
+              > div:first-child {
+                background: $dark_base_color;
+              }
+              > div:last-child {
+                height: 20px;
+                width: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:after {
+                  background: $dark_base_color;
+                  height: 10px;
+                  width: 10px;
+                  transform: translate(-50%, -50%);
+                  box-shadow: 0 0 0 10px #fff, 0 11px 11px rgba(0, 0, 0, 0.5);
+                }
+              }
+            }
+          }
+          &.playing {
+            .seekbar {
+              max-height: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes playing {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
