@@ -22,9 +22,22 @@ const Player = ({
   const [playing, setPlaying] = useState(false);
   const [seeking, setSeeking] = useState(0);
   const [played, setPlayed] = useState(0);
+  const [currentTime, setCurrentTime] = useState(null);
+  const [duration, setDuration] = useState(null);
 
   const playerRef = useRef(null);
 
+  function msToTime(s) {
+    const ms = s % 1000;
+    s = (s - ms) / 1000;
+    const secs = s % 60;
+    s = (s - secs) / 60;
+    const mins = s % 60;
+    const hrs = (s - mins) / 60;
+    return `${hrs ? `${hrs < 10 ? `0${hrs}` : hrs}:` : ""}${
+      mins < 10 ? `0${mins}` : mins
+    }:${secs < 10 ? `0${secs}` : secs}`;
+  }
   useEffect(() => {
     if (playStatus) {
       setPlaying(true);
@@ -57,6 +70,7 @@ const Player = ({
     <div className="sermonItem">
       <ReactPlayer
         ref={playerRef}
+        onError={e => console.log("onError", e)}
         url={`https://soundcloud.com${playData.url}`}
         height="0"
         className="react-player"
@@ -65,10 +79,13 @@ const Player = ({
         pip={pip}
         playing={playing}
         onProgress={e => {
-          // console.log(e);
           if (!seeking) {
             setPlayed(parseFloat(e.played));
           }
+          setCurrentTime(msToTime(e.playedSeconds * 1000));
+        }}
+        onDuration={e => {
+          setDuration(msToTime(e * 1000));
         }}
       />
       <div className="player">
@@ -121,6 +138,10 @@ const Player = ({
             </div>
           </div>
           <div className="seekbar">
+            <p>
+              <span className="time current">{currentTime}</span>
+              <span className="time duration">{duration}</span>
+            </p>
             <Slider
               axis="x"
               x={played * 100}

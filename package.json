@@ -27,7 +27,8 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
     "react-input-slider": "^5.1.4",
-    "react-player": "^1.15.3"
+    "react-player": "^1.15.3",
+    "react-soundcloud-player": "^1.1.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
