@@ -1,104 +1,286 @@
 #Sermons {
+  .main-heading-ttl {
+    width: 100%;
+    margin: 25px 0;
+    font-size: 50px;
+  }
   .sermonList {
+    transition: all 0.25s;
+    padding-bottom: 0;
+    &.pad {
+      padding-bottom: 300px;
+    }
+    display: flex;
+    margin: 0 -15px;
+    width: calc(100% + 30px);
+    flex-wrap: wrap;
     .sermonItem {
-      margin-top: 50px;
-      .react-player {
-        display: none;
-      }
+      width: 25%;
       display: flex;
       align-items: center;
-      padding: 15px 0;
-      .player {
+      cursor: pointer;
+      padding: 15px;
+      position: relative;
+      .icon {
+        z-index: 3;
+        position: absolute;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
         display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          color: $dark_base_color;
+          height: 75px;
+          width: 75px;
+        }
+        span {
+          padding: 5px 10px;
+          line-height: 1;
+          font-weight: bold;
+          color: #fff;
+          margin-top: 10px;
+          border-radius: 0 0 10px 10px;
+          background: $dark_base_color;
+        }
+        &.playing {
+          align-items: flex-start;
+        }
+      }
+      .image {
+        height: 250px;
+        padding: 15px;
+        transition: all 0.25s;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: $dark_base_color;
+        background-size: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        font-weight: 900;
         width: 100%;
-        .aart {
+        justify-content: flex-end;
+        position: relative;
+        > * {
           position: relative;
-          img {
-            min-width: 150px;
-            height: 150px;
+          z-index: 2;
+        }
+        .med-heading-ttl {
+          margin: 0;
+          font-size: 18px;
+        }
+        .sub {
+          font-size: 14px;
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          .date {
+            font-size: 80%;
+            line-height: 1;
+            opacity: 0.75;
           }
-          &.playing {
-            img {
-              animation: playing 50s linear infinite;
-              border-radius: 100px;
-              transition: all 0.25s;
+        }
+        &:after {
+          content: "";
+          z-index: 1;
+          position: absolute;
+          left: 0;
+          pointer-events: none;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: linear-gradient(
+            to bottom,
+            transparent 30%,
+            rgba(0, 0, 0, 0.7) 75%
+          );
+        }
+
+        @include shadow;
+        &.aart-1 {
+          background-image: url(../images/aarts/aart-1.jpg);
+        }
+        &.aart-2 {
+          background-image: url(../images/aarts/aart-2.jpg);
+        }
+        &.aart-3 {
+          background-image: url(../images/aarts/aart-3.jpg);
+        }
+        &.aart-4 {
+          background-image: url(../images/aarts/aart-4.jpg);
+        }
+        &.aart-5 {
+          background-image: url(../images/aarts/aart-5.jpg);
+        }
+      }
+    }
+  }
+  .react-player {
+    display: none;
+  }
+}
+.playerWrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: $black_bg;
+  padding: 15px;
+  z-index: 999;
+  width: 100%;
+  transition: all 0.25s linear;
+  transform: translateY(100%);
+  &.visible {
+    transform: translateY(0%);
+    .player {
+      .aart {
+        margin-top: -65px;
+      }
+    }
+  }
+  .player {
+    display: flex;
+    .aart {
+      position: relative;
+      margin-top: 0;
+      transition: all 0.25s linear;
+      height: 200px;
+      border-radius: 100px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      .img {
+        min-width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        transition: all 0.25s;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: $dark_base_color;
+        background-size: 100%;
+        &.aart-1 {
+          background-image: url(../images/aarts/aart-1.jpg);
+        }
+        &.aart-2 {
+          background-image: url(../images/aarts/aart-2.jpg);
+        }
+        &.aart-3 {
+          background-image: url(../images/aarts/aart-3.jpg);
+        }
+        &.aart-4 {
+          background-image: url(../images/aarts/aart-4.jpg);
+        }
+        &.aart-5 {
+          background-image: url(../images/aarts/aart-5.jpg);
+        }
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $black_bg;
+        height: 20px;
+        border-radius: 20px;
+        z-index: 9;
+        width: 20px;
+        box-shadow: 0 0 0 15px #000, inset 0 3px 7px rgba(0, 0, 0, 0.5);
+        transition: all 0.25s;
+        transform: scale(0);
+      }
+      &.playing {
+        &:before {
+          animation: playing 50s linear infinite reverse;
+          transform: scale(1);
+        }
+        .img {
+          animation: playing 50s linear infinite;
+        }
+      }
+    }
+    .rest {
+      padding-left: 50px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .top {
+        display: flex;
+        margin-bottom: 15px;
+        .left {
+          flex: 1 0 0;
+
+          .author {
+            color: $dark_base_color;
+            margin-right: 25px;
+          }
+        }
+        .right {
+          width: 150px;
+          display: flex;
+          button {
+            min-width: 0;
+            height: 75px;
+            width: 75px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 75px;
+            svg {
+              height: 25px;
+              width: 25px;
+            }
+            & ~ button {
+              transform: scale(0.75);
             }
           }
         }
-        .rest {
-          padding-left: 50px;
+        color: #fff;
+        .med-heading-ttl {
+          margin-bottom: 0;
+          color: #fff;
+        }
+      }
+      .seekbar {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.75s;
+        padding: 0 25px;
+        margin: 0 -25px;
+        > div {
           width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          .top {
+          height: 5px;
+          cursor: pointer;
+          > div:first-child {
+            background: $dark_base_color;
+          }
+          > div:last-child {
+            height: 20px;
+            width: 20px;
             display: flex;
-            margin-bottom: 15px;
-            .left {
-              flex: 1 0 0;
-              .author {
-                color: $dark_base_color;
-                margin-right: 25px;
-              }
-            }
-            .right {
-              width: 150px;
-              display: flex;
-              button {
-                min-width: 0;
-                height: 75px;
-                width: 75px;
-                padding: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 75px;
-                svg {
-                  height: 25px;
-                  width: 25px;
-                }
-                & ~ button {
-                  transform: scale(0.75);
-                }
-              }
-            }
-            .main-heading-ttl {
-              margin-bottom: 0;
+            align-items: center;
+            justify-content: center;
+            &:after {
+              background: $dark_base_color;
+              height: 10px;
+              width: 10px;
+              transform: translate(-50%, -50%);
+              box-shadow: 0 0 0 10px #fff, 0 11px 11px rgba(0, 0, 0, 0.5);
             }
           }
-          .seekbar {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.75s;
-            padding: 0 25px;
-            > div {
-              width: 100%;
-              height: 5px;
-              cursor: pointer;
-              > div:first-child {
-                background: $dark_base_color;
-              }
-              > div:last-child {
-                height: 20px;
-                width: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                &:after {
-                  background: $dark_base_color;
-                  height: 10px;
-                  width: 10px;
-                  transform: translate(-50%, -50%);
-                  box-shadow: 0 0 0 10px #fff, 0 11px 11px rgba(0, 0, 0, 0.5);
-                }
-              }
-            }
-          }
-          &.playing {
-            .seekbar {
-              max-height: 60px;
-            }
-          }
+        }
+      }
+      &.playing {
+        .seekbar {
+          max-height: 60px;
+          padding: 0 25px 25px;
         }
       }
     }

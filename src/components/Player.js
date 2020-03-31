@@ -2,21 +2,20 @@ import React, { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
 import Slider from "react-input-slider";
 import { IoIosPlay, IoIosPause, IoIosSquare } from "react-icons/io";
-import aart from "../images/aart.jpg";
 
-const Player = ({ url, refid, onClick, idx, status }) => {
+const Player = ({ playData, playStatus, onClick }) => {
   const [pip, setPip] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [seeking, setSeeking] = useState(0);
   const [played, setPlayed] = useState(0);
 
-  const playerRef = useRef(refid);
+  const playerRef = useRef(null);
 
   useEffect(() => {
-    if (status !== idx) {
-      setPlaying(false);
+    if (playStatus) {
+      setPlaying(true);
     }
-  }, [status]);
+  }, [playStatus]);
 
   const handleSeekMouseDown = () => {
     setSeeking(true);
@@ -32,19 +31,20 @@ const Player = ({ url, refid, onClick, idx, status }) => {
   };
   const handlePlayPause = () => {
     setPlaying(!playing);
-    onClick(idx);
+    // onClick(idx);
   };
   const handleStop = () => {
     setPlaying(false);
     setPlayed(0);
+    onClick();
     playerRef.current.seekTo(0);
   };
-
+  console.log(playing);
   return (
     <div className="sermonItem">
       <ReactPlayer
         ref={playerRef}
-        url={`https://soundcloud.com${url}`}
+        url={`https://soundcloud.com${playData.url}`}
         height="0"
         className="react-player"
         width="100%"
@@ -59,15 +59,15 @@ const Player = ({ url, refid, onClick, idx, status }) => {
       />
       <div className="player">
         <div className={`aart ${playing ? "playing" : "paused"}`}>
-          <img src={aart} alt={aart} />
+          <div className={`img ${playData.art}`} />
         </div>
         <div className={`rest ${playing ? "playing" : "paused"}`}>
           <div className="top">
             <div className="left">
-              <h2 className="main-heading-ttl">Title</h2>
+              <h2 className="med-heading-ttl">{playData.title}</h2>
               <p className="sub">
-                <span className="author">PS. Raj Manohar</span>
-                <span className="date">27th October, 2019</span>
+                <span className="author">{playData.author}</span>
+                <span className="date">{playData.date}</span>
               </p>
             </div>
             <div className="right">
