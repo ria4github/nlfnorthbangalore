@@ -3,6 +3,10 @@
     width: 100%;
     margin: 25px 0;
     font-size: 50px;
+    @include respondToBelow(sm) {
+      font-size: 35px;
+      margin: 0 0 15px;
+    }
   }
   .sermonList {
     transition: all 0.25s;
@@ -14,6 +18,10 @@
     margin: 0 -15px;
     width: calc(100% + 30px);
     flex-wrap: wrap;
+    @include respondToBelow(sm) {
+      margin: 0;
+      width: 100%;
+    }
     .sermonItem {
       width: 25%;
       display: flex;
@@ -21,6 +29,10 @@
       cursor: pointer;
       padding: 15px;
       position: relative;
+      @include respondToBelow(sm) {
+        width: 50%;
+        padding: 10px;
+      }
       .icon {
         z-index: 3;
         position: absolute;
@@ -58,7 +70,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-color: $dark_base_color;
-        background-size: 100%;
+        background-size: cover;
         display: flex;
         flex-direction: column;
         color: #fff;
@@ -80,6 +92,10 @@
           width: 100%;
           flex-direction: column;
           align-items: flex-start;
+          .author {
+            line-height: 1;
+            margin: 10px 0 5px;
+          }
           .date {
             font-size: 80%;
             line-height: 1;
@@ -135,16 +151,47 @@
   width: 100%;
   transition: all 0.25s linear;
   transform: translateY(100%);
+  @include respondToBelow(sm) {
+    padding: 0;
+  }
   &.visible {
     transform: translateY(0%);
     .player {
       .aart {
         margin-top: -65px;
+        @include respondToBelow(sm) {
+          margin-top: 0;
+        }
+      }
+      .close {
+        transform: translateY(-100%);
       }
     }
   }
   .player {
     display: flex;
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 0;
+      height: 35px;
+      border-radius: 5px 5px 0 0;
+      width: 45px;
+      cursor: pointer;
+      background: $black_bg;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(0);
+      transition: all 0.25s linear;
+      svg {
+        height: 25px;
+        width: 25px;
+        transition: all 0.25s linear;
+      }
+    }
+
     .aart {
       position: relative;
       margin-top: 0;
@@ -152,6 +199,18 @@
       height: 200px;
       border-radius: 100px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      @include respondToBelow(sm) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        box-shadow: none;
+        border-radius: none;
+        filter: blur(5px);
+      }
+
       .img {
         min-width: 200px;
         height: 200px;
@@ -161,6 +220,11 @@
         background-repeat: no-repeat;
         background-color: $dark_base_color;
         background-size: 100%;
+        @include respondToBelow(sm) {
+          min-width: 100%;
+          height: 100%;
+          border-radius: 0;
+        }
         &.aart-1 {
           background-image: url(../images/aarts/aart-1.jpg);
         }
@@ -192,15 +256,22 @@
         width: 20px;
         box-shadow: 0 0 0 15px #000, inset 0 3px 7px rgba(0, 0, 0, 0.5);
         transition: all 0.25s;
-        transform: scale(0);
+        @include respondToBelow(sm) {
+          content: none;
+        }
       }
       &.playing {
         &:before {
           animation: playing 50s linear infinite reverse;
-          transform: scale(1);
+          @include respondToBelow(sm) {
+            animation: none;
+          }
         }
         .img {
           animation: playing 50s linear infinite;
+          @include respondToBelow(sm) {
+            animation: none;
+          }
         }
       }
     }
@@ -210,20 +281,45 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+
+      @include respondToBelow(sm) {
+        padding: 0;
+        position: relative;
+        z-index: 4;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.75);
+      }
       .top {
         display: flex;
         margin-bottom: 15px;
+
+        @include respondToBelow(sm) {
+          flex-direction: column;
+          > div {
+            flex: unset;
+            width: 100%;
+          }
+        }
         .left {
           flex: 1 0 0;
 
+          @include respondToBelow(sm) {
+            padding-bottom: 15px;
+            text-align: center;
+          }
           .author {
             color: $dark_base_color;
             margin-right: 25px;
           }
         }
         .right {
-          width: 150px;
+          width: 250px;
           display: flex;
+          @include respondToBelow(sm) {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+          }
           button {
             min-width: 0;
             height: 75px;
@@ -233,12 +329,16 @@
             align-items: center;
             justify-content: center;
             border-radius: 75px;
+            transform: scale(0.75);
+            &[disabled] {
+              opacity: 0;
+            }
             svg {
               height: 25px;
               width: 25px;
             }
-            & ~ button {
-              transform: scale(0.75);
+            &.play {
+              transform: scale(1);
             }
           }
         }
@@ -254,6 +354,10 @@
         transition: all 0.75s;
         padding: 0 25px;
         margin: 0 -25px;
+
+        @include respondToBelow(sm) {
+          margin: 0;
+        }
         > div {
           width: 100%;
           height: 5px;

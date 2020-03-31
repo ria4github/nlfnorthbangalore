@@ -1,9 +1,23 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
 import Slider from "react-input-slider";
-import { IoIosPlay, IoIosPause, IoIosSquare } from "react-icons/io";
+import {
+  FiPlay,
+  FiSkipBack,
+  FiPause,
+  FiSkipForward,
+  FiX
+} from "react-icons/fi";
 
-const Player = ({ playData, playStatus, onClick }) => {
+const Player = ({
+  playData,
+  playStatus,
+  onClick,
+  trackIndex,
+  changeTrack,
+  pauseTrack,
+  trackLength
+}) => {
   const [pip, setPip] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [seeking, setSeeking] = useState(0);
@@ -31,7 +45,7 @@ const Player = ({ playData, playStatus, onClick }) => {
   };
   const handlePlayPause = () => {
     setPlaying(!playing);
-    // onClick(idx);
+    pauseTrack();
   };
   const handleStop = () => {
     setPlaying(false);
@@ -39,7 +53,6 @@ const Player = ({ playData, playStatus, onClick }) => {
     onClick();
     playerRef.current.seekTo(0);
   };
-  console.log(playing);
   return (
     <div className="sermonItem">
       <ReactPlayer
@@ -52,12 +65,16 @@ const Player = ({ playData, playStatus, onClick }) => {
         pip={pip}
         playing={playing}
         onProgress={e => {
+          // console.log(e);
           if (!seeking) {
             setPlayed(parseFloat(e.played));
           }
         }}
       />
       <div className="player">
+        <span className="close" onClick={handleStop}>
+          <FiX />
+        </span>
         <div className={`aart ${playing ? "playing" : "paused"}`}>
           <div className={`img ${playData.art}`} />
         </div>
@@ -67,16 +84,40 @@ const Player = ({ playData, playStatus, onClick }) => {
               <h2 className="med-heading-ttl">{playData.title}</h2>
               <p className="sub">
                 <span className="author">{playData.author}</span>
-                <span className="date">{playData.date}</span>
               </p>
             </div>
             <div className="right">
-              <button onClick={handlePlayPause}>
-                {!playing ? <IoIosPlay /> : <IoIosPause />}
+              {trackIndex - 1 >= 0 ? (
+                <button
+                  onClick={() => {
+                    pauseTrack();
+                    changeTrack(trackIndex - 1);
+                  }}
+                >
+                  <FiSkipBack />
+                </button>
+              ) : (
+                <button disabled>
+                  <FiSkipBack />
+                </button>
+              )}
+              <button className="play" onClick={handlePlayPause}>
+                {!playing ? <FiPlay /> : <FiPause />}
               </button>
-              <button onClick={handleStop}>
-                <IoIosSquare />
-              </button>
+              {trackIndex + 1 < trackLength ? (
+                <button
+                  onClick={() => {
+                    pauseTrack();
+                    changeTrack(trackIndex + 1);
+                  }}
+                >
+                  <FiSkipForward />
+                </button>
+              ) : (
+                <button disabled>
+                  <FiSkipForward />
+                </button>
+              )}
             </div>
           </div>
           <div className="seekbar">

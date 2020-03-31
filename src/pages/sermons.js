@@ -7,6 +7,7 @@ const Sermons = () => {
   const [playData, setPlayData] = useState(null);
   const [playStatus, setPlayStatus] = useState(false);
   const [playerShow, setPlayerShow] = useState(false);
+  const [idx, setIdx] = useState(0);
   const trackList = [
     {
       title: "Kanneerelamma",
@@ -16,7 +17,7 @@ const Sermons = () => {
       url: "/ramesh-pandranki/sets/kanneerelamma"
     },
     {
-      title: "Shrustu Kartha",
+      title: "Shrusti Kartha",
       date: "06th dec, 2019",
       author: " Ps. V.Sateesh",
       art: "aart-2",
@@ -60,6 +61,7 @@ const Sermons = () => {
                   setPlayData(trackData);
                   setPlayStatus(true);
                   setPlayerShow(true);
+                  setIdx(i);
                 }}
                 key={trackData.art}
               >
@@ -87,6 +89,17 @@ const Sermons = () => {
               <Player
                 playData={playData}
                 playStatus={playStatus}
+                trackIndex={idx}
+                trackLength={trackList.length}
+                changeTrack={val => {
+                  setIdx(val);
+                  setPlayData(trackList[val]);
+                  setPlayStatus(true);
+                  setPlayerShow(true);
+                }}
+                pauseTrack={() => {
+                  setPlayStatus(false);
+                }}
                 onClick={() => {
                   setPlayerShow(false);
                   setTimeout(() => {
