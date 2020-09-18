@@ -1,0 +1,127 @@
+#Loader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  &.inline {
+    position: absolute;
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+    .inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  svg {
+    height: 40px;
+    width: 40px;
+    animation: 1.5s linear infinite svg-animation;
+    max-width: 100px;
+  }
+
+  circle {
+    animation: 2s ease-in-out infinite both circle-animation;
+    display: block;
+    fill: transparent;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 280;
+    transform-origin: 50% 50%;
+  }
+  &.static {
+    top: auto;
+    svg {
+      height: 50px;
+      width: 50px;
+      animation: 0.5s linear infinite svg-animation;
+    }
+
+    circle {
+      animation: 1s ease-in-out infinite both circle-animation;
+    }
+  }
+  &.skell {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    min-height: 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    &.dark {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 200%;
+      width: 100%;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.01) 0,
+        rgba(0, 0, 0, 0.05) 45%,
+        rgba(0, 0, 0, 0.01) 75%
+      );
+      transform: rotate(-45deg);
+      background-size: 100%;
+      background-position: center;
+      animation: shine-lines 1.5s infinite linear;
+    }
+    svg,
+    circle {
+      display: none;
+    }
+  }
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes circle-animation {
+  0%,
+  25% {
+    stroke-dashoffset: 280;
+    transform: rotate(0);
+  }
+
+  50%,
+  75% {
+    stroke-dashoffset: 75;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    stroke-dashoffset: 280;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shine-lines {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

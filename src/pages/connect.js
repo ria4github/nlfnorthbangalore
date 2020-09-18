@@ -3,13 +3,15 @@ import Layout from "../components/Layout";
 import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
-import { firestore, functions } from "../Firestore";
+import { firestore } from "../firebaseConfig";
+import Loader from "../components/Loader";
 
 const Connect = () => {
   // console.log(process.env.FIRE_STORE_KEY);
 
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+  const [success, setSuccess] = useState( "" );
+  const [error, setError] = useState( "" );
+  const [doLoad, setDoLoad] = useState( false );
 
   const initialItemValues = {
     userName: "",
@@ -19,11 +21,12 @@ const Connect = () => {
     userMessage: ""
   };
 
-  const [item, setItem] = useState(initialItemValues);
+  const [item, setItem] = useState( initialItemValues );
 
   const sendDetails = event => {
     event.preventDefault();
     // console.log(item);
+    setDoLoad( true );
     if (
       item.userName.length &&
       item.userMail.length &&
@@ -32,27 +35,31 @@ const Connect = () => {
       item.userMessage.length
     ) {
       firestore
-        .collection("connect_data")
+        .collection( "connect_data" )
         .doc()
-        .set(item)
-        .then(() => {
-          setItem(initialItemValues);
+        .set( item )
+        .then( () => {
+          setDoLoad( false );
+          setItem( initialItemValues );
           setSuccess(
             "Thanks....! We have recieved your request. We will get back to you soon."
           );
-        })
-        .catch(error => {
-          console.error(error);
-          setError("Ooops....! Somthing went wrong.");
-        });
+        } )
+        .catch( error => {
+          console.error( error );
+          setDoLoad( false );
+          setError( "Ooops....! Somthing went wrong." );
+        } );
     }
   };
 
   const onChange = e => {
-    setItem({
+    setSuccess( "" );
+    setError( "" );
+    setItem( {
       ...item,
       [e.target.name]: e.target.value
-    });
+    } );
   };
 
   return (
@@ -90,7 +97,7 @@ const Connect = () => {
                   <input
                     value={item.userName}
                     name="userName"
-                    onChange={e => onChange(e)}
+                    onChange={e => onChange( e )}
                     placeholder=" "
                     type="text"
                   />
@@ -102,7 +109,7 @@ const Connect = () => {
                   <input
                     value={item.userMail}
                     name="userMail"
-                    onChange={e => onChange(e)}
+                    onChange={e => onChange( e )}
                     placeholder=" "
                     type="text"
                   />
@@ -114,7 +121,7 @@ const Connect = () => {
                   <input
                     value={item.userPhone}
                     name="userPhone"
-                    onChange={e => onChange(e)}
+                    onChange={e => onChange( e )}
                     placeholder=" "
                     type="text"
                   />
@@ -123,7 +130,14 @@ const Connect = () => {
                   </label>
                 </div>
                 <div className="form_row labelPlaceholder">
-                  <select name="userLifeGroup" onChange={e => onChange(e)}>
+                  <select
+                    name="userLifeGroup"
+                    value={item.userLifeGroup}
+                    onChange={e => onChange( e )}
+                  >
+                    <option disabled={true} value={""}>
+                      Select Life Group
+                    </option>
                     <option value="Hebbal">Hebbal</option>
                     <option value="Amruthahalli">Amruthahalli</option>
                     <option value="Vidyaranayapura">Vidyaranayapura</option>
@@ -138,7 +152,7 @@ const Connect = () => {
                   <textarea
                     value={item.userMessage}
                     name="userMessage"
-                    onChange={e => onChange(e)}
+                    onChange={e => onChange( e )}
                     type="text"
                   />
                 </div>
@@ -151,13 +165,17 @@ const Connect = () => {
                 <div className="form_row">
                   <div className="actions">
                     {!item.userName.length ||
-                    !item.userMail.length ||
-                    !item.userPhone.length ||
-                    !item.userMessage.length ? (
-                      <button disabled>Submit</button>
-                    ) : (
-                      <button>Submit</button>
-                    )}
+                      !item.userMail.length ||
+                      !item.userPhone.length ||
+                      !item.userLifeGroup.length ||
+                      !item.userMessage.length ? (
+                        <button disabled>Submit</button>
+                      ) : (
+                        <button>
+                          {doLoad ? <Loader inline /> : null}
+                        Submit
+                        </button>
+                      )}
                   </div>
                 </div>
               </form>

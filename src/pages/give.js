@@ -4,27 +4,30 @@ import Layout from "../components/Layout";
 import give_illust from "../images/give_illust.svg";
 import online_illust from "../images/online_illust.svg";
 import cheque_illust from "../images/cheque_illust.svg";
-import { firestore, functions } from "../Firestore";
+import { firestore, functions } from "../firebaseConfig";
+import Loader from "../components/Loader";
 
 const GivePage = () => {
-  const [formTrig, setFormTrig] = useState("");
+  const [formTrig, setFormTrig] = useState( "" );
 
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+  const [success, setSuccess] = useState( "" );
+  const [error, setError] = useState( "" );
+  const [doLoad, setDoLoad] = useState( false );
 
   const initialItemValues = {
     giveName: "",
     giveEmail: "",
     givePhone: "",
-    giveType: ""
+    giveType: formTrig
   };
 
-  const [item, setItem] = useState(initialItemValues);
-  console.log(item);
+  const [item, setItem] = useState( initialItemValues );
+  console.log( item );
 
   const sendDetails = event => {
     event.preventDefault();
     // console.log(item);
+    setDoLoad( true );
     if (
       item.giveName.length &&
       item.giveEmail.length &&
@@ -32,33 +35,37 @@ const GivePage = () => {
       item.giveType.length
     ) {
       firestore
-        .collection("give_data")
+        .collection( "give_data" )
         .doc()
-        .set(item)
-        .then(() => {
-          setItem(initialItemValues);
+        .set( item )
+        .then( () => {
+          setItem( initialItemValues );
+          setDoLoad( false );
           setSuccess(
             "Thanks....! We have recieved your request. We will get back to you soon."
           );
-        })
-        .catch(error => {
-          console.error(error);
-          setError("Ooops....! Somthing went wrong.");
-        });
+        } )
+        .catch( error => {
+          console.error( error );
+          setDoLoad( false );
+          setError( "Ooops....! Somthing went wrong." );
+        } );
     }
   };
 
   const onChange = e => {
-    if (e.target) {
-      setItem({
+    setSuccess( "" );
+    setError( "" );
+    if ( e.target ) {
+      setItem( {
         ...item,
         [e.target.name]: e.target.value
-      });
+      } );
     } else {
-      setItem({
+      setItem( {
         ...item,
         giveType: e
-      });
+      } );
     }
   };
 
@@ -91,7 +98,7 @@ const GivePage = () => {
                   <form className="card" onSubmit={sendDetails}>
                     <h4 className="main-heading-ttl">
                       <span className="close">
-                        <FiX onClick={() => setFormTrig("")} />
+                        <FiX onClick={() => setFormTrig( "" )} />
                       </span>
                       <span className="title">{formTrig}</span>
                     </h4>
@@ -107,9 +114,10 @@ const GivePage = () => {
                     <div className="form_row labelPlaceholder">
                       <input
                         name="giveName"
-                        onChange={e => onChange(e)}
+                        onChange={e => onChange( e )}
                         id="name"
                         placeholder=" "
+                        value={item.giveName}
                         type="text"
                       />
                       <label htmlFor="name" className="key">
@@ -119,9 +127,10 @@ const GivePage = () => {
                     <div className="form_row labelPlaceholder">
                       <input
                         name="giveEmail"
-                        onChange={e => onChange(e)}
+                        onChange={e => onChange( e )}
                         id="email"
                         placeholder=" "
+                        value={item.giveEmail}
                         type="text"
                       />
                       <label htmlFor="email" className="key">
@@ -131,9 +140,10 @@ const GivePage = () => {
                     <div className="form_row labelPlaceholder">
                       <input
                         name="givePhone"
-                        onChange={e => onChange(e)}
+                        onChange={e => onChange( e )}
                         id="phone"
                         placeholder=" "
+                        value={item.givePhone}
                         type="text"
                       />
                       <label htmlFor="phone" className="key">
@@ -150,7 +160,17 @@ const GivePage = () => {
                     </div>
                     <div className="form_row">
                       <div className="actions">
-                        <button>Submit</button>
+                        {!item.giveName.length ||
+                          !item.giveEmail.length ||
+                          !item.givePhone.length ||
+                          !item.giveType.length ? (
+                            <button disabled>Submit</button>
+                          ) : (
+                            <button>
+                              {doLoad ? <Loader inline /> : null}
+                            Submit
+                            </button>
+                          )}
                       </div>
                     </div>
                   </form>
@@ -164,10 +184,10 @@ const GivePage = () => {
                   role="button"
                   className={`item online ${
                     formTrig === "online" ? "active" : "inactive"
-                  }`}
+                    }`}
                   onClick={() => {
-                    setFormTrig("online");
-                    onChange("online");
+                    setFormTrig( "online" );
+                    onChange( "online" );
                   }}
                 >
                   <div className="img_dec_wrap">
@@ -181,10 +201,10 @@ const GivePage = () => {
                 <div
                   className={`item offline ${
                     formTrig === "cheque" ? "active" : "inactive"
-                  }`}
+                    }`}
                   onClick={() => {
-                    setFormTrig("cheque");
-                    onChange("cheque");
+                    setFormTrig( "cheque" );
+                    onChange( "cheque" );
                   }}
                   tabIndex="0"
                   role="button"
