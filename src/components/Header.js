@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => {
     };
   }, []);
 
-  const listener = e => {
+  const listener = (e) => {
     if (document.documentElement.scrollTop > 10) {
       setColor(true);
     } else {
@@ -73,7 +73,7 @@ const Header = ({ siteTitle }) => {
             <li>
               <Link to="/ministries">Ministries</Link>
             </li>
-            <li className="">
+            <li className="comingSoon">
               <Link to="/sermons">Sermons</Link>
             </li>
             <li>
@@ -93,11 +93,11 @@ const Header = ({ siteTitle }) => {
 };
 
 Header.propTypes = {
-  siteTitle: PropTypes.string
+  siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-  siteTitle: ``
+  siteTitle: ``,
 };
 
 export default Header;
