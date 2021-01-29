@@ -8,6 +8,33 @@
   .fixed_top & {
     margin-top: 0;
   }
+  .nameBadge {
+    display: inline-block;
+    color: #fff;
+    background: $wb-grad;
+    padding: 10px 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    small {
+      position: relative;
+      font-size: 14px;
+      z-index: 1;
+    }
+    &::before {
+      content: "";
+      left: 2px;
+      right: 2px;
+      top: 2px;
+      bottom: 2px;
+      background: $black_bg;
+      position: absolute;
+      border-radius: 4px;
+      z-index: 0;
+    }
+  }
+
   &:before {
     content: "";
     clip-path: ellipse(50% 20% at 50% 50%);

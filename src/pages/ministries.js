@@ -18,14 +18,10 @@ const Ministries = () => {
                 <div className="back">
                   <div className="inner">
                     <p className="description">
-                      Cillum ullamco pariatur laborum labore sit consequat velit
-                      Lorem minim ipsum consectetur magna. Dolore tempor ad
-                      Lorem proident reprehenderit quis ut est labore fugiat
-                      culpa reprehenderit. Tempor in quis nisi incididunt dolor.
-                      Eu anim voluptate enim pariatur. Duis fugiat sit ex non
-                      pariatur duis. Dolore adipisicing nulla Lorem minim
-                      deserunt ex duis est qui magna non fugiat. Enim est
-                      occaecat eu proident laboris veniam aute voluptate.
+                      Being young doesn’t mean you are no game. Big things start
+                      small. Being part of the youth is having the chance to
+                      make Jesus known, go all out for Him and still have fun.
+                      We are young, we are vibrant, and we love Jesus.
                     </p>
                   </div>
                 </div>
@@ -41,14 +37,9 @@ const Ministries = () => {
                 <div className="back">
                   <div className="inner">
                     <p className="description">
-                      Cillum ullamco pariatur laborum labore sit consequat velit
-                      Lorem minim ipsum consectetur magna. Dolore tempor ad
-                      Lorem proident reprehenderit quis ut est labore fugiat
-                      culpa reprehenderit. Tempor in quis nisi incididunt dolor.
-                      Eu anim voluptate enim pariatur. Duis fugiat sit ex non
-                      pariatur duis. Dolore adipisicing nulla Lorem minim
-                      deserunt ex duis est qui magna non fugiat. Enim est
-                      occaecat eu proident laboris veniam aute voluptate.
+                      We believe that learning about God and having fun are
+                      essential in the Junior Church. We engage our children in
+                      the Word and equip them to become world changers!
                     </p>
                   </div>
                 </div>
@@ -64,14 +55,11 @@ const Ministries = () => {
                 <div className="back">
                   <div className="inner">
                     <p className="description">
-                      Cillum ullamco pariatur laborum labore sit consequat velit
-                      Lorem minim ipsum consectetur magna. Dolore tempor ad
-                      Lorem proident reprehenderit quis ut est labore fugiat
-                      culpa reprehenderit. Tempor in quis nisi incididunt dolor.
-                      Eu anim voluptate enim pariatur. Duis fugiat sit ex non
-                      pariatur duis. Dolore adipisicing nulla Lorem minim
-                      deserunt ex duis est qui magna non fugiat. Enim est
-                      occaecat eu proident laboris veniam aute voluptate.
+                      The biblical importance of fellowship is based on the fact
+                      that spiritual growth happens best within a community with
+                      similar goals. Join us at one of our 5 Life Groups,
+                      located across North Bangalore, as we come together for a
+                      deeper walk of faith.
                     </p>
                   </div>
                 </div>
@@ -87,14 +75,11 @@ const Ministries = () => {
                 <div className="back">
                   <div className="inner">
                     <p className="description">
-                      Cillum ullamco pariatur laborum labore sit consequat velit
-                      Lorem minim ipsum consectetur magna. Dolore tempor ad
-                      Lorem proident reprehenderit quis ut est labore fugiat
-                      culpa reprehenderit. Tempor in quis nisi incididunt dolor.
-                      Eu anim voluptate enim pariatur. Duis fugiat sit ex non
-                      pariatur duis. Dolore adipisicing nulla Lorem minim
-                      deserunt ex duis est qui magna non fugiat. Enim est
-                      occaecat eu proident laboris veniam aute voluptate.
+                      With the presence of God who strengthens us and
+                      understands our pain, we are empowered to face challenges
+                      and emerge victorious. Connect with us to know more and to
+                      experience the fullness of life that comes with Christ
+                      Jesus!
                     </p>
                   </div>
                 </div>
@@ -110,14 +95,11 @@ const Ministries = () => {
                 <div className="back">
                   <div className="inner">
                     <p className="description">
-                      Cillum ullamco pariatur laborum labore sit consequat velit
-                      Lorem minim ipsum consectetur magna. Dolore tempor ad
-                      Lorem proident reprehenderit quis ut est labore fugiat
-                      culpa reprehenderit. Tempor in quis nisi incididunt dolor.
-                      Eu anim voluptate enim pariatur. Duis fugiat sit ex non
-                      pariatur duis. Dolore adipisicing nulla Lorem minim
-                      deserunt ex duis est qui magna non fugiat. Enim est
-                      occaecat eu proident laboris veniam aute voluptate.
+                      Worship that connects us to God, an act of faith, is a
+                      powerful weapon to our advantage. Its strength is
+                      evidenced, crumbling down the walls of Jericho and leading
+                      King Jehoshaphat to victory. To encounter breakthroughs,
+                      join us in worship, as a part of our Worship Team!
                     </p>
                   </div>
                 </div>
@@ -133,14 +115,10 @@ const Ministries = () => {
                 <div className="back">
                   <div className="inner">
                     <p className="description">
-                      Cillum ullamco pariatur laborum labore sit consequat velit
-                      Lorem minim ipsum consectetur magna. Dolore tempor ad
-                      Lorem proident reprehenderit quis ut est labore fugiat
-                      culpa reprehenderit. Tempor in quis nisi incididunt dolor.
-                      Eu anim voluptate enim pariatur. Duis fugiat sit ex non
-                      pariatur duis. Dolore adipisicing nulla Lorem minim
-                      deserunt ex duis est qui magna non fugiat. Enim est
-                      occaecat eu proident laboris veniam aute voluptate.
+                      Let’s build our faith with intercession, as you join us
+                      for a time of praying over your needs and refreshing in
+                      the spirit. We’d love to pray for you, so feel free to
+                      join with us!
                     </p>
                   </div>
                 </div>

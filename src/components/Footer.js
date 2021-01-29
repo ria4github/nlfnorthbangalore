@@ -5,7 +5,7 @@ import {
   FiInstagram,
   FiYoutube,
   FiPhone,
-  FiMail
+  FiMail,
 } from "react-icons/fi";
 
 const Footer = () => {
@@ -14,11 +14,15 @@ const Footer = () => {
       <div className="midFooter">
         <div className="container">
           <div className="row">
-            <div className="col l4 s12 addr">
+            <div className="col l5 s12 addr">
               <p>
-                NEW LIFE FELLOWSHIP YELAHANKA CHURCH, NO.293, 3RD FLOOR, ABOVE
-                KANTI SWEETS, 1ST A MAIN RD, A SECTOR, 15TH A CROSS RD,
-                BENGALURU, KARNATAKA-560064, INDIA.
+                <span className="nameBadge">
+                  <small>NEW LIFE FELLOWSHIP YELAHANKA CHURCH</small>
+                </span>
+                <p>
+                  NO.293, 3RD FLOOR, ABOVE KANTI SWEETS, 1ST A MAIN RD, A
+                  SECTOR, 15TH A CROSS RD, BENGALURU, KARNATAKA-560064, INDIA.
+                </p>
               </p>
             </div>
             <div className="col l4 s12 ctaction">
@@ -31,25 +35,38 @@ const Footer = () => {
                 <span>NEWLIFEYELAHANKA@GMAIL.COM</span>
               </p>
             </div>
-            <div className="col l4 s12">
+            <div className="col l3 s12">
               <ul>
                 <li>
-                  <a className="Facebook" href="/">
+                  <a
+                    className="Facebook"
+                    href="//www.facebook.com/newlifeyelahanka/"
+                  >
                     <FiFacebook />
                   </a>
                 </li>
                 <li>
-                  <a className="Instagram" href="/">
+                  <a
+                    className="Instagram"
+                    href="//www.instagram.com/nlfyelahanka/"
+                  >
                     <FiInstagram />
                   </a>
                 </li>
                 <li>
-                  <a className="Youtube " href="/">
+                  <a
+                    className="Youtube "
+                    href="//www.youtube.com/c/NewLifeFellowshipYelahanka"
+                  >
                     <FiYoutube />
                   </a>
                 </li>
                 <li>
-                  <a className="Whatsapp" href="/">
+                  <a
+                    target="_blank"
+                    className="Whatsapp"
+                    href="//wa.me/918050533087?text=Hi%20NLFY%20?"
+                  >
                     <FaWhatsapp />
                   </a>
                 </li>

@@ -1,400 +1,174 @@
-#Sermons {
-  .main-heading-ttl {
-    width: 100%;
-    margin: 25px 0;
-    font-size: 50px;
-    @include respondToBelow(sm) {
-      font-size: 35px;
-      margin: 0 0 15px;
+.sermonsPage {
+  #header-container {
+    .header {
+      background: linear-gradient(to bottom, #fff, #fff, #fff);
+      transition: all 0.25s;
     }
-  }
-  .sermonList {
-    transition: all 0.25s;
-    padding-bottom: 0;
-    &.pad {
-      padding-bottom: 300px;
+    .header.false {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0)
+      );
     }
-    display: flex;
-    margin: 0 -15px;
-    width: calc(100% + 30px);
-    flex-wrap: wrap;
-    @include respondToBelow(sm) {
-      margin: 0;
-      width: 100%;
-    }
-    .sermonItem {
-      width: 25%;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 15px;
-      position: relative;
-      @include respondToBelow(sm) {
-        width: 50%;
-        padding: 10px;
-      }
-      .icon {
-        z-index: 3;
-        position: absolute;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        pointer-events: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        svg {
-          color: $dark_base_color;
-          height: 75px;
-          width: 75px;
-        }
-        span {
-          padding: 5px 10px;
-          line-height: 1;
-          font-weight: bold;
-          color: #fff;
-          margin-top: 10px;
-          border-radius: 0 0 10px 10px;
-          background: $dark_base_color;
-        }
-        &.playing {
-          align-items: flex-start;
-        }
-      }
-      .image {
-        height: 250px;
-        padding: 15px;
-        transition: all 0.25s;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: $dark_base_color;
-        background-size: cover;
-        display: flex;
-        flex-direction: column;
-        color: #fff;
-        font-weight: 900;
-        width: 100%;
-        justify-content: flex-end;
-        position: relative;
-        > * {
-          position: relative;
-          z-index: 2;
-        }
-        .med-heading-ttl {
-          margin: 0;
-          font-size: 18px;
-        }
-        .sub {
-          font-size: 14px;
-          display: flex;
-          width: 100%;
-          flex-direction: column;
-          align-items: flex-start;
-          .author {
-            line-height: 1;
-            margin: 10px 0 5px;
-          }
-          .date {
-            font-size: 80%;
-            line-height: 1;
-            opacity: 0.75;
-          }
-        }
-        &:after {
-          content: "";
-          z-index: 1;
-          position: absolute;
-          left: 0;
-          pointer-events: none;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          background: linear-gradient(
-            to bottom,
-            transparent 30%,
-            rgba(0, 0, 0, 0.7) 75%
-          );
-        }
-
-        @include shadow;
-        &.aart-1 {
-          background-image: url(../images/aarts/aart-1.jpg);
-        }
-        &.aart-2 {
-          background-image: url(../images/aarts/aart-2.jpg);
-        }
-        &.aart-3 {
-          background-image: url(../images/aarts/aart-3.jpg);
-        }
-        &.aart-4 {
-          background-image: url(../images/aarts/aart-4.jpg);
-        }
-        &.aart-5 {
-          background-image: url(../images/aarts/aart-5.jpg);
-        }
-      }
-    }
-  }
-  .react-player {
-    display: none;
   }
 }
-.playerWrap {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  background: $black_bg;
-  padding: 15px;
-  z-index: 999;
-  width: 100%;
-  transition: all 0.25s linear;
-  transform: translateY(100%);
-  @include respondToBelow(sm) {
-    padding: 0;
+#Sermons {
+  padding: 0 0 100px;
+  .main-heading-ttl {
+    text-align: center;
+    margin: 10px 0;
   }
-  &.visible {
-    transform: translateY(0%);
-    .player {
-      .aart {
-        margin-top: -65px;
-        @include respondToBelow(sm) {
-          margin-top: 0;
-        }
-      }
-      .close {
-        transform: translateY(-100%);
+  .headerTitle {
+    .inWrap {
+      position: relative;
+      height: 70vh;
+      z-index: 0;
+      @include respondToBelow(sm) {
+        height: 50vh;
       }
     }
-  }
-  .player {
-    display: flex;
-    .close {
+    .ytImg {
+      transition: all 0.35s;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      @include respondToBelow(sm) {
+        transform: translateY(-40px);
+      }
+    }
+    .play {
       position: absolute;
-      right: 15px;
+      left: 0;
+      right: 0;
       top: 0;
-      height: 35px;
-      border-radius: 5px 5px 0 0;
-      width: 45px;
-      cursor: pointer;
-      background: $black_bg;
-      color: #fff;
+      bottom: 0;
+      height: 50px;
+      width: 75px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transform: translateY(0);
-      transition: all 0.25s linear;
+      z-index: 1;
+      background: $wb-grad;
+      margin: auto;
+      cursor: pointer;
+      transition: all 0.35s ease-in-out;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      svg {
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        transition: all 0.35s ease-in-out;
+      }
+      &:hover {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        transform: rotate(180deg);
+        svg {
+          height: 50px;
+          width: 50px;
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+  .container {
+    background: #fff;
+    padding: 15px;
+    margin-top: -100px;
+    position: relative;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+  }
+  .ytlist {
+    display: flex;
+    flex-wrap: wrap;
+
+    .dot {
+      background: #fff;
+      color: red;
+      height: 40px;
+      width: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+      z-index: 2;
       svg {
         height: 25px;
         width: 25px;
-        transition: all 0.25s linear;
       }
     }
-
-    .aart {
-      position: relative;
-      margin-top: 0;
-      transition: all 0.25s linear;
-      height: 200px;
-      border-radius: 100px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    .ytitem {
+      width: 25%;
+      padding: 15px;
+      cursor: pointer;
       @include respondToBelow(sm) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        height: 100%;
-        box-shadow: none;
-        border-radius: none;
-        filter: blur(5px);
+        width: 100%;
+        padding: 10px 10px 15px;
       }
 
-      .img {
-        min-width: 200px;
-        height: 200px;
-        border-radius: 100px;
-        transition: all 0.25s;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: $dark_base_color;
-        background-size: 100%;
-        @include respondToBelow(sm) {
-          min-width: 100%;
-          height: 100%;
-          border-radius: 0;
-        }
-        &.aart-1 {
-          background-image: url(../images/aarts/aart-1.jpg);
-        }
-        &.aart-2 {
-          background-image: url(../images/aarts/aart-2.jpg);
-        }
-        &.aart-3 {
-          background-image: url(../images/aarts/aart-3.jpg);
-        }
-        &.aart-4 {
-          background-image: url(../images/aarts/aart-4.jpg);
-        }
-        &.aart-5 {
-          background-image: url(../images/aarts/aart-5.jpg);
-        }
-      }
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        background: $black_bg;
-        height: 20px;
-        border-radius: 20px;
-        z-index: 9;
-        width: 20px;
-        box-shadow: 0 0 0 15px #000, inset 0 3px 7px rgba(0, 0, 0, 0.5);
-        transition: all 0.25s;
-        @include respondToBelow(sm) {
-          content: none;
-        }
-      }
-      &.playing {
-        &:before {
-          animation: playing 50s linear infinite reverse;
-          @include respondToBelow(sm) {
-            animation: none;
-          }
-        }
-        .img {
-          animation: playing 50s linear infinite;
-          @include respondToBelow(sm) {
-            animation: none;
-          }
-        }
-      }
-    }
-    .rest {
-      padding-left: 50px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      @include respondToBelow(sm) {
-        padding: 0;
+      .inWrap {
+        background: #000;
+        height: 350px;
         position: relative;
-        z-index: 4;
-        padding: 15px;
-        background: rgba(0, 0, 0, 0.75);
-      }
-      .top {
-        display: flex;
-        margin-bottom: 15px;
-
-        @include respondToBelow(sm) {
-          margin-bottom: 0;
-          flex-direction: column;
-          > div {
-            flex: unset;
-            width: 100%;
-          }
-        }
-        .left {
-          flex: 1 0 0;
-
-          @include respondToBelow(sm) {
-            padding-bottom: 15px;
-            text-align: center;
-          }
-          .author {
-            color: $dark_base_color;
-            margin-right: 25px;
-          }
-        }
-        .right {
-          width: 250px;
-          display: flex;
-          justify-content: flex-end;
-          @include respondToBelow(sm) {
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-          }
-          button {
-            min-width: 0;
-            height: 75px;
-            width: 75px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 75px;
-            transform: scale(0.75);
-            &[disabled] {
-              opacity: 0;
-            }
-            svg {
-              height: 25px;
-              width: 25px;
-            }
-            &.play {
-              transform: scale(1);
-            }
-          }
-        }
-        color: #fff;
-        .med-heading-ttl {
-          margin-bottom: 0;
-          color: #fff;
-        }
-      }
-      .seekbar {
-        max-height: 0;
+        border-radius: 15px;
         overflow: hidden;
-        transition: all 0.75s;
-        padding: 0 25px;
-        margin: 0 -25px;
-        p {
-          display: flex;
-          justify-content: space-between;
-          .time {
-            color: #fff;
-          }
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          opacity: 0.5;
+          background: radial-gradient(rgba(0, 0, 0, 0), #000);
+          z-index: 1;
+          transition: all 0.35s;
         }
-
-        @include respondToBelow(sm) {
-          margin: 0;
-        }
-        > div {
+        img {
+          transition: all 0.35s;
+          object-fit: cover;
+          height: 100%;
+          transform: translateY(-70px);
+          filter: grayscale(1);
           width: 100%;
-          height: 5px;
-          transform: translateY(-10px);
-          cursor: pointer;
-          > div:first-child {
-            background: $dark_base_color;
-          }
-          > div:last-child {
-            height: 20px;
-            width: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &:after {
-              background: $dark_base_color;
-              height: 10px;
-              width: 10px;
-              transform: translate(-50%, -50%);
-              box-shadow: 0 0 0 10px #fff, 0 11px 11px rgba(0, 0, 0, 0.5);
-            }
-          }
+        }
+        .ytTitle {
+          position: absolute;
+          padding: 10px;
+          border-radius: 10px;
+          left: 10px;
+          bottom: 10px;
+          right: 10px;
+          color: #fff;
+          font-weight: 500;
+          background: $wb-grad;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          z-index: 2;
         }
       }
-      &.playing {
-        .seekbar {
-          max-height: 60px;
-          padding: 0 25px 25px;
+
+      &:hover {
+        .inWrap {
+          &:after {
+            opacity: 0;
+          }
+          img {
+            filter: grayscale(0);
+          }
         }
       }
     }
@@ -408,5 +182,63 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+reach-portal {
+  .dialogOverlay {
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    > .dialogContent {
+      width: 75vw;
+      position: relative;
+      .close {
+        cursor: pointer;
+        background: $wb-grad;
+        right: -50px;
+        top: -50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        svg {
+          height: 30px;
+          width: 30px;
+          color: #fff;
+        }
+      }
+      iframe {
+        margin: -33px -33px 30px;
+        width: calc(100% + 66px);
+        height: 60vh;
+      }
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.goToTop.button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 9;
+  height: 50px;
+  min-width: 0;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.15), 0 0 0 4px $dark_base_color;
+  svg {
+    color: $dark_base_color;
+    height: 35px;
+    width: 35px;
   }
 }

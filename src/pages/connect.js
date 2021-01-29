@@ -9,24 +9,24 @@ import Loader from "../components/Loader";
 const Connect = () => {
   // console.log(process.env.FIRE_STORE_KEY);
 
-  const [success, setSuccess] = useState( "" );
-  const [error, setError] = useState( "" );
-  const [doLoad, setDoLoad] = useState( false );
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [doLoad, setDoLoad] = useState(false);
 
   const initialItemValues = {
     userName: "",
     userMail: "",
     userPhone: "",
     userLifeGroup: "",
-    userMessage: ""
+    userMessage: "",
   };
 
-  const [item, setItem] = useState( initialItemValues );
+  const [item, setItem] = useState(initialItemValues);
 
-  const sendDetails = event => {
+  const sendDetails = (event) => {
     event.preventDefault();
     // console.log(item);
-    setDoLoad( true );
+    setDoLoad(true);
     if (
       item.userName.length &&
       item.userMail.length &&
@@ -35,31 +35,31 @@ const Connect = () => {
       item.userMessage.length
     ) {
       firestore
-        .collection( "connect_data" )
+        .collection("connect_data")
         .doc()
-        .set( item )
-        .then( () => {
-          setDoLoad( false );
-          setItem( initialItemValues );
+        .set(item)
+        .then(() => {
+          setDoLoad(false);
+          setItem(initialItemValues);
           setSuccess(
             "Thanks....! We have recieved your request. We will get back to you soon."
           );
-        } )
-        .catch( error => {
-          console.error( error );
-          setDoLoad( false );
-          setError( "Ooops....! Somthing went wrong." );
-        } );
+        })
+        .catch((error) => {
+          console.error(error);
+          setDoLoad(false);
+          setError("Ooops....! Somthing went wrong.");
+        });
     }
   };
 
-  const onChange = e => {
-    setSuccess( "" );
-    setError( "" );
-    setItem( {
+  const onChange = (e) => {
+    setSuccess("");
+    setError("");
+    setItem({
       ...item,
-      [e.target.name]: e.target.value
-    } );
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -67,7 +67,7 @@ const Connect = () => {
       <div id="connect">
         <div className="container">
           <div className="row largeSpacing">
-            <div className="col l7 s12 leftList">
+            <div className="col l7 s12 leftList" style={{ margin: "auto" }}>
               <div className="flexIt">
                 <div className="illust">
                   <img src={connect_illust} alt={connect_illust} />
@@ -90,7 +90,7 @@ const Connect = () => {
                 <GMap />
               </div>
             </div>
-            <div className="col l5 s12 rightList">
+            {/* <div className="col l5 s12 rightList">
               <form className="card" onSubmit={sendDetails}>
                 <h4 className="main-heading-ttl">Connect with us</h4>
                 <div className="form_row labelPlaceholder">
@@ -179,7 +179,7 @@ const Connect = () => {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

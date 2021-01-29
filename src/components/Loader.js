@@ -1,12 +1,12 @@
 import React from "react";
 
-const Loader = props => {
+const Loader = (props) => {
   return (
     <span
       id="Loader"
-      className={`${props.static ? "static" : " "} ${
-        props.inline ? "inline" : " "
-      } ${props.skell ? "skell" : " "}`}
+      className={`${props.static ? "static" : ""} ${
+        props.block ? "block" : ""
+      } ${props.inline ? "inline" : ""} ${props.skell ? "skell" : ""}`}
       style={{ ...props.style, height: props.skell ? props.skell : "auto" }}
     >
       <span className="inner">

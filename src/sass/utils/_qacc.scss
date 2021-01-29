@@ -452,59 +452,82 @@ body {
 
 .slick-slider {
   position: relative;
+  max-width: 100%;
+  margin: auto;
   .slick-list {
     overflow: hidden;
-    margin: 0 -15px;
     padding: 0;
+    background: #fff;
+
     .slick-slide {
-      padding: 5px 15px;
       float: left;
       transition: all 0.25s;
     }
   }
+
   .slick-arrow {
     padding: 0 !important;
-    height: 45px;
-    width: 45px;
+    height: 50px;
+    width: 50px;
     font-size: 0;
-    background: transparent !important;
     box-shadow: none;
     position: absolute;
-    right: -35px;
-    top: 0;
+    right: 0;
     bottom: 0;
-    margin: auto;
     z-index: 999;
-    &:before {
-      content: "";
-      height: 50%;
-      width: 50%;
-      position: absolute;
-      transform: rotate(45deg);
-      border: solid $dark_base_color;
-      border-width: 2px 2px 0 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: $wb-grad;
+
+    svg {
+      color: #000;
+      height: 25px;
+      width: 25px;
+      color: #fff;
     }
+
     &.slick-disabled {
-      visibility: hidden;
+      pointer-events: none;
+      filter: grayscale(1);
+      opacity: 0.5;
+    }
+
+    &.slick-prev {
+      right: 50px;
     }
   }
 
-  .slick-arrow.slick-prev {
-    right: auto;
-    left: -35px;
-    &:before {
-      right: auto;
-      left: 0;
-      right: 0;
-      border-width: 0 0 2px 2px;
+  .slick-dots {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 25px;
+
+    li {
+      margin: 0 3.5px;
+      .btn {
+        display: block;
+        padding: 0;
+        line-height: initial;
+        font-size: 0;
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        display: block;
+        cursor: pointer;
+      }
+
+      &.slick-active .btn {
+      }
     }
   }
 }
+
 .disabled {
   background: $page_bg_color;
   pointer-events: none;
