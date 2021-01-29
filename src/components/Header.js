@@ -73,7 +73,7 @@ const Header = ({ siteTitle }) => {
             <li>
               <Link to="/ministries">Ministries</Link>
             </li>
-            <li>
+            <li className="comingSoon">
               <Link to="/sermons">Sermons</Link>
             </li>
             <li>
@@ -82,7 +82,7 @@ const Header = ({ siteTitle }) => {
             <li>
               <Link to="/connect">Connect</Link>
             </li>
-            <li className="comingSoon">
+            <li>
               <Link to="/give ">Give</Link>
             </li>
           </ul>

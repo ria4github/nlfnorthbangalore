@@ -32,7 +32,7 @@ const Footer = () => {
               </p>
               <p className="icon flexIt">
                 <FiMail />
-                <span>NEWLIFEYELAHANKA@GMAIL.COM</span>
+                <span>newlifeyelahanka@gmail.com</span>
               </p>
             </div>
             <div className="col l3 s12">
@@ -55,7 +55,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    className="Youtube "
+                    className="Youtube"
                     href="//www.youtube.com/c/NewLifeFellowshipYelahanka"
                   >
                     <FiYoutube />
@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="copy">
-        2020 &copy; NLFYELAHANKA.COM - All rights Reserved.
+        2021 &copy; NLFYELAHANKA.COM - All rights Reserved.
       </p>
     </div>
   );

@@ -16,7 +16,8 @@ const Sermons = () => {
   const [nextPage, setNextPage] = useState(true);
   const [totalLength, setTotalLength] = useState(null);
 
-  const apikey = "AIzaSyBUbN1QdY-3vqlOl7FUKZU8gOeYIdJLlfQ";
+  const apikey = "";
+  // const apikey = "AIzaSyBUbN1QdY-3vqlOl7FUKZU8gOeYIdJLlfQ";
 
   useEffect(() => {
     axios
