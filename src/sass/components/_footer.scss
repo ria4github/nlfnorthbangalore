@@ -66,6 +66,9 @@
           }
         }
         &.addr {
+          p {
+            text-transform: none;
+          }
           @include respondToAbove(md) {
             padding-right: 50px;
           }
@@ -80,6 +83,7 @@
           @include respondToBelow(sm) {
             padding: 0 15px;
           }
+          text-transform: none;
           p.icon {
             margin-bottom: 10px;
             align-items: center;
@@ -142,6 +146,7 @@
     }
   }
   .copy {
+    text-transform: none;
     background: rgba(0, 0, 0, 0.75);
     color: #fff;
     text-align: center;

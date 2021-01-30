@@ -4,6 +4,7 @@ import { GMap } from "../components/GMap";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import connect_illust from "../images/connect_illust.svg";
 import { firestore } from "../firebaseConfig";
+import SEO from "../components/seo";
 import Loader from "../components/Loader";
 
 const Connect = () => {
@@ -64,6 +65,12 @@ const Connect = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Connect | NLFY"
+        description="New Life Fellowship Yelahanka,
+        No 293,3rd Floor,Above Kanti Sweets,1st A Main Rd,A Sector,15th A Cross Rd,Bengaluru,Karnataka - 560064
+        "
+      />
       <div id="connect">
         <div className="container">
           <div className="row largeSpacing">

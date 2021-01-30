@@ -6,6 +6,7 @@ import online_illust from "../images/online_illust.svg";
 import cheque_illust from "../images/cheque_illust.svg";
 import { firestore, functions } from "../firebaseConfig";
 import Loader from "../components/Loader";
+import SEO from "../components/seo";
 
 const GivePage = () => {
   const [formTrig, setFormTrig] = useState("");
@@ -71,6 +72,10 @@ const GivePage = () => {
 
   return (
     <Layout page="give">
+      <SEO
+        title="Give | NLFY"
+        description={`For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life." John 3:16 (NIV)`}
+      />
       <div id="give">
         <div className="container">
           <div className={`row largeSpacing ${formTrig ? "shrink" : ""}`}>
@@ -86,12 +91,6 @@ const GivePage = () => {
                     eternal life." <small>John 3:16 (NIV)</small>
                   </span>
                 </h4>
-                <p>
-                  Laboris incididunt reprehenderit duis quis esse labore id.
-                  Anim et nulla aliqua anim nulla. Dolore esse minim
-                  reprehenderit velit minim velit esse nisi elit ut anim nulla
-                  sit.
-                </p>
               </div>
               <div className="formList">
                 {formTrig ? (

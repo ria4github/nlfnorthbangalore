@@ -22,7 +22,7 @@ const IndexPage = () => {
     const theHeight = aboutRef.current.offsetTop;
     window &&
       window.scrollTo({
-        top: theHeight - 80,
+        top: theHeight,
         left: 0,
         behavior: "smooth",
       });
@@ -74,7 +74,12 @@ const IndexPage = () => {
   }
   return (
     <Layout page="fixed_top theHome">
-      <SEO title="Home" />
+      <SEO
+        title="Home | NLFY"
+        description="We are group of people from all walks of life who are being
+    transformed by Jesus Christ passionate about sharing his love
+    by caring for each other."
+      />
       <div className="home">
         <section id="intro">
           <div className="img_grid">
@@ -278,7 +283,7 @@ const IndexPage = () => {
                     <div className="bsdy cardimg"></div>
                     <p className="strongTitle">Bible Study</p>
                     <p className="cardDesc">
-                      Join us every Wednesday 7 PM to get deep into the Word
+                      Delve deeper into the Word every Wednesday at 7:30 PM
                     </p>
                   </div>
                 </div>
@@ -287,7 +292,8 @@ const IndexPage = () => {
                     <div className="enc_eve cardimg"></div>
                     <p className="strongTitle">Encounter Evening</p>
                     <p className="cardDesc">
-                      Join us every Wednesday 7 PM to get deep into the Word
+                      Refresh your spirit with intercessory prayer every Friday
+                      at 7:30 PM
                     </p>
                   </div>
                 </div>
@@ -296,16 +302,17 @@ const IndexPage = () => {
                     <div className="youth_meet cardimg"></div>
                     <p className="strongTitle">Life Group</p>
                     <p className="cardDesc">
-                      Join us every Wednesday 7 PM to get deep into the Word
+                      We’re stronger together. Join us in the 2nd and 4th week
+                      of every month.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="flexIt hcenter">
+              {/* <div className="flexIt hcenter">
                 <Link to="/about" className="readmore">
                   Know More >>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

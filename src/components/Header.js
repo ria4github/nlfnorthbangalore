@@ -77,13 +77,13 @@ const Header = ({ siteTitle }) => {
               <Link to="/sermons">Sermons</Link>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
               <Link to="/connect">Connect</Link>
             </li>
             <li>
               <Link to="/give ">Give</Link>
+            </li>
+            <li>
+              <Link to="/roots">Roots</Link>
             </li>
           </ul>
         </nav>

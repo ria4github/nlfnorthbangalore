@@ -7,9 +7,15 @@ import vision from "../images/vision.jpg";
 import values from "../images/values.jpeg";
 import faith from "../images/faith.jpeg";
 import devine from "../images/devine.jpg";
-const about = () => {
+
+import SEO from "../components/seo";
+const roots = () => {
   return (
     <Layout page="fixed_top">
+      <SEO
+        title="Connect | NLFY"
+        description="We are group of people from all walks of life who are being transformed by Jesus Christ passionate about sharing his love by caring for each other. Life is a gift from God that is given to be enjoyed to the fullest. No matter where life has taken you, we believe that there is always hope in Jesus Christ, who is able to bring beauty out of ashes!"
+      />
       <div id="about">
         <div className="section_structure">
           <div className="section-1 section">
@@ -221,4 +227,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default roots;

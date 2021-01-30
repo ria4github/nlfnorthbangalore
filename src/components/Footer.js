@@ -20,8 +20,8 @@ const Footer = () => {
                   <small>NEW LIFE FELLOWSHIP YELAHANKA CHURCH</small>
                 </span>
                 <p>
-                  NO.293, 3RD FLOOR, ABOVE KANTI SWEETS, 1ST A MAIN RD, A
-                  SECTOR, 15TH A CROSS RD, BENGALURU, KARNATAKA-560064, INDIA.
+                  #293, 3rd Floor, Above Kanti Sweets, 1st A Main Rd, A Sector,
+                  15th A Cross Rd, Bengaluru, Karnataka - 560064, India.
                 </p>
               </p>
             </div>
@@ -65,7 +65,7 @@ const Footer = () => {
                   <a
                     target="_blank"
                     className="Whatsapp"
-                    href="//wa.me/918050533087?text=Hi%20NLFY%20?"
+                    href="//wa.me/917338554131?text=Hi%20NLFY%20?"
                   >
                     <FaWhatsapp />
                   </a>
@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="copy">
-        2021 &copy; NLFYELAHANKA.COM - All rights Reserved.
+        2021 &copy; nlfyelahanka.com - All rights Reserved.
       </p>
     </div>
   );

@@ -1,9 +1,11 @@
 import React from "react";
 import Layout from "../components/Layout";
+import SEO from "../components/seo";
 
 const Ministries = () => {
   return (
     <Layout>
+      <SEO title="Ministries | NLFY" />
       <div id="ministries">
         <div className="container">
           <h4 className="main-heading-ttl">Ministries</h4>
