@@ -4,7 +4,10 @@ import SEO from "../components/seo";
 import { Link } from "gatsby";
 import ModernLine from "../components/ModernLine";
 import pastorTeam from "../images/pastorTeam.png";
-import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
+import { FaCaretRight, FaCaretLeft, FaWhatsapp } from "react-icons/fa";
+import { BiDirections } from "react-icons/bi";
+import { FiFacebook, FiInstagram, FiYoutube } from "react-icons/fi";
+
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
@@ -171,10 +174,34 @@ const IndexPage = () => {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="button plain black small"
+                    className="Facebook"
+                    href="//www.facebook.com/newlifeyelahanka/"
+                  >
+                    <FiFacebook />
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="Instagram"
+                    href="//www.instagram.com/nlfyelahanka/"
+                  >
+                    <FiInstagram />
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="Youtube"
+                    href="//www.youtube.com/c/NewLifeFellowshipYelahanka"
+                  >
+                    <FiYoutube />
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="direction"
                     href="https://goo.gl/maps/TgWKShUqf5Ep2ktz8"
                   >
-                    GET DIRECTIONS
+                    <BiDirections />
                   </a>
                 </p>
               </div>
@@ -359,7 +386,7 @@ const IndexPage = () => {
             <iframe
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/${showVid}`}
+              src={`https://www.youtube.com/embed/${showVid}?autoplay=1`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

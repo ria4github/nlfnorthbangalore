@@ -8,17 +8,23 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
+import Loader from "./Loader";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import { GoArrowUp } from "react-icons/go";
 
 import "../sass/main.scss";
+import { Fragment } from "react";
 
 const Layout = ({ children, page, noFooter, toTop }) => {
   const [enoughScroll, setEnoughScroll] = useState(false);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 1500);
     if (document.documentElement.scrollTop > 200) {
       setEnoughScroll(true);
     } else {
@@ -58,18 +64,21 @@ const Layout = ({ children, page, noFooter, toTop }) => {
   `);
 
   return (
-    <div id="page" className={page ? page : ""}>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{children}</main>
+    <Fragment>
+      {loader ? <Loader /> : null}
+      <div id="page" className={page ? page : ""}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div>
+          <main>{children}</main>
+        </div>
+        {!noFooter ? <Footer /> : null}
+        {toTop && enoughScroll ? (
+          <span className="button goToTop" onClick={() => scrollToTop()}>
+            <GoArrowUp />
+          </span>
+        ) : null}
       </div>
-      {!noFooter ? <Footer /> : null}
-      {toTop && enoughScroll ? (
-        <span className="button goToTop" onClick={() => scrollToTop()}>
-          <GoArrowUp />
-        </span>
-      ) : null}
-    </div>
+    </Fragment>
   );
 };
 

@@ -39,6 +39,8 @@ const Footer = () => {
               <ul>
                 <li>
                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="Facebook"
                     href="//www.facebook.com/newlifeyelahanka/"
                   >
@@ -47,6 +49,8 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="Instagram"
                     href="//www.instagram.com/nlfyelahanka/"
                   >
@@ -55,6 +59,8 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="Youtube"
                     href="//www.youtube.com/c/NewLifeFellowshipYelahanka"
                   >
@@ -64,6 +70,7 @@ const Footer = () => {
                 <li>
                   <a
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="Whatsapp"
                     href="//wa.me/917338554131?text=Hi%20NLFY%20?"
                   >

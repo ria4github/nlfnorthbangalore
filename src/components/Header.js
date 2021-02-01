@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import logoWhite from "../images/logo-white.svg";
+import DropDown from "./DropDown";
 
 const Header = ({ siteTitle }) => {
   const [color, setColor] = useState(false); //color -> state , setColor -> function that updates the state
@@ -73,9 +74,15 @@ const Header = ({ siteTitle }) => {
             <li>
               <Link to="/ministries">Ministries</Link>
             </li>
-            <li className="comingSoon">
-              <Link to="/sermons">Sermons</Link>
-            </li>
+            <DropDown title="Sermons">
+              <li>
+                <Link to="/sermons-english">English</Link>
+              </li>
+              <li>
+                <Link to="/sermons-kannada">Kannada</Link>
+              </li>
+            </DropDown>
+
             <li>
               <Link to="/connect">Connect</Link>
             </li>

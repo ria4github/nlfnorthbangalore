@@ -190,9 +190,15 @@ reach-portal {
     z-index: 9999;
     background: rgba(0, 0, 0, 0.85);
     padding: 30px;
+    @include respondToBelow(sm) {
+      padding: 15px;
+    }
     > .dialogContent {
       width: 75vw;
       position: relative;
+      @include respondToBelow(sm) {
+        width: 100%;
+      }
       .close {
         cursor: pointer;
         background: $wb-grad;
@@ -209,6 +215,10 @@ reach-portal {
           height: 30px;
           width: 30px;
           color: #fff;
+        }
+        @include respondToBelow(sm) {
+          right: 0;
+          top: 0;
         }
       }
       iframe {
