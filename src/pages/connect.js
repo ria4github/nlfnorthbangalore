@@ -74,7 +74,10 @@ const Connect = () => {
       <div id="connect">
         <div className="container">
           <div className="row largeSpacing">
-            <div className="col l7 s12 leftList" style={{ margin: "auto" }}>
+            <div
+              className="col l7 s12 leftList"
+              // style={{ margin: "auto" }}
+            >
               <div className="flexIt">
                 <div className="illust">
                   <img src={connect_illust} alt={connect_illust} />
@@ -97,14 +100,14 @@ const Connect = () => {
                 <GMap />
               </div>
             </div>
-            {/* <div className="col l5 s12 rightList">
+            <div className="col l5 s12 rightList">
               <form className="card" onSubmit={sendDetails}>
                 <h4 className="main-heading-ttl">Connect with us</h4>
                 <div className="form_row labelPlaceholder">
                   <input
                     value={item.userName}
                     name="userName"
-                    onChange={e => onChange( e )}
+                    onChange={(e) => onChange(e)}
                     placeholder=" "
                     type="text"
                   />
@@ -116,7 +119,7 @@ const Connect = () => {
                   <input
                     value={item.userMail}
                     name="userMail"
-                    onChange={e => onChange( e )}
+                    onChange={(e) => onChange(e)}
                     placeholder=" "
                     type="text"
                   />
@@ -128,7 +131,7 @@ const Connect = () => {
                   <input
                     value={item.userPhone}
                     name="userPhone"
-                    onChange={e => onChange( e )}
+                    onChange={(e) => onChange(e)}
                     placeholder=" "
                     type="text"
                   />
@@ -140,7 +143,7 @@ const Connect = () => {
                   <select
                     name="userLifeGroup"
                     value={item.userLifeGroup}
-                    onChange={e => onChange( e )}
+                    onChange={(e) => onChange(e)}
                   >
                     <option disabled={true} value={""}>
                       Select Life Group
@@ -159,7 +162,7 @@ const Connect = () => {
                   <textarea
                     value={item.userMessage}
                     name="userMessage"
-                    onChange={e => onChange( e )}
+                    onChange={(e) => onChange(e)}
                     type="text"
                   />
                 </div>
@@ -172,21 +175,21 @@ const Connect = () => {
                 <div className="form_row">
                   <div className="actions">
                     {!item.userName.length ||
-                      !item.userMail.length ||
-                      !item.userPhone.length ||
-                      !item.userLifeGroup.length ||
-                      !item.userMessage.length ? (
-                        <button disabled>Submit</button>
-                      ) : (
-                        <button>
-                          {doLoad ? <Loader inline /> : null}
+                    !item.userMail.length ||
+                    !item.userPhone.length ||
+                    !item.userLifeGroup.length ||
+                    !item.userMessage.length ? (
+                      <button disabled>Submit</button>
+                    ) : (
+                      <button>
+                        {doLoad ? <Loader inline /> : null}
                         Submit
-                        </button>
-                      )}
+                      </button>
+                    )}
                   </div>
                 </div>
               </form>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

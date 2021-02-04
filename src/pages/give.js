@@ -79,7 +79,10 @@ const GivePage = () => {
       <div id="give">
         <div className="container">
           <div className={`row largeSpacing ${formTrig ? "shrink" : ""}`}>
-            <div className={`col l6 s12 leftList`} style={{ margin: "auto" }}>
+            <div
+              className={`col l6 s12 leftList`}
+              // style={{ margin: "auto" }}
+            >
               <div className="static">
                 <div className="illust">
                   <img alt={give_illust} src={give_illust} />
@@ -176,7 +179,7 @@ const GivePage = () => {
                 ) : null}
               </div>
             </div>
-            {/* <div className={`col l6 s12 rightList `}>
+            <div className={`col l6 s12 rightList `}>
               <div className="slide">
                 <div
                   tabIndex="0"
@@ -218,7 +221,7 @@ const GivePage = () => {
                 </div>
                 <div className="item slideBg"></div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

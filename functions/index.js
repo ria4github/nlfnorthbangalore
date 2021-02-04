@@ -8,7 +8,7 @@ const serviceAccount = require("./nlfyelahanka-service-account");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://nlfyelahanka.firebaseio.com"
+  databaseURL: "https://nlfyelahanka.firebaseio.com",
 });
 
 const db = admin.firestore();
@@ -20,7 +20,7 @@ const db = admin.firestore();
 //  response.send("Hello from Firebase!");
 // });
 
-const sendEmail = doc => {
+const sendEmail = (doc) => {
   console.log(doc.data());
   let subject, html;
   if (doc.data().userName) {
@@ -62,19 +62,19 @@ const sendEmail = doc => {
   }
 
   const msg = {
-    to: "praveen@antstack.io",
+    to: "newlifeyelahanka@gmail.com",
     from: "praveengorakala@gmail.com",
     subject: subject,
-    html: html
+    html: html,
   };
   //ES6
   sgMail
     .send(msg)
-    .then(resp => console.log(resp))
-    .catch(err => console.log(err));
+    .then((resp) => console.log(resp))
+    .catch((err) => console.log(err));
 };
 
-const sendToUser = doc => {
+const sendToUser = (doc) => {
   console.log(doc.data());
   let toMail, subject, html;
   if (doc.data().userName) {
@@ -95,16 +95,16 @@ const sendToUser = doc => {
   }
 
   const msg = {
-    from: "praveen@antstack.io",
+    from: "newlifeyelahanka@gmail.com",
     to: "praveengorakala@gmail.com",
     subject: subject,
-    html: html
+    html: html,
   };
   //ES6
   sgMail
     .send(msg)
-    .then(resp => console.log(resp))
-    .catch(err => console.log(err));
+    .then((resp) => console.log(resp))
+    .catch((err) => console.log(err));
 };
 
 exports.connectData = functions.firestore
