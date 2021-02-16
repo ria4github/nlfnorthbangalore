@@ -22,7 +22,8 @@ const Index = () => {
   const [showVid, setShowVid] = useState(null);
   const aboutRef = useRef(null);
   const scrollToAbout = () => {
-    const theHeight = aboutRef.current.offsetTop;
+    const theHeight =
+      aboutRef.current.offsetTop + aboutRef.current.clientHeight;
     window &&
       window.scrollTo({
         top: theHeight,
