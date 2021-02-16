@@ -149,7 +149,11 @@ const Index = () => {
                   <span className="solid">Every Sunday</span> for exciting
                   service
                 </p>
-                <ModernLine />
+                <span class="modernLine">
+                  <span>.</span>
+                  <span>.</span>
+                  <span>.</span>
+                </span>
                 <div className="timeLayout">
                   <div className="bloq kannada">
                     <p className="lang">ಕನ್ನಡ</p>
