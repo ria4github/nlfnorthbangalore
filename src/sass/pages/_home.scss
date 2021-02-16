@@ -9,7 +9,7 @@
     overflow: hidden;
     background-repeat: no-repeat;
     @include respondToBelow(sm) {
-      min-height: 70vh;
+      min-height: 60vh;
       background-position: bottom center;
       background-size: auto 100%;
     }
@@ -78,11 +78,15 @@
             color: #fff;
           }
           @include respondToBelow(sm) {
-            flex: 0 0 100%;
+            flex: 0 0 45vh;
             padding: 30px 15px;
             width: 100%;
             text-align: center;
             background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             h4 {
               color: $black_bg;
               font-size: 7vw;
@@ -175,6 +179,10 @@
               z-index: 9;
               transform: translateX(-50%);
               bottom: 15px;
+              @include respondToBelow(sm) {
+                transform: translate(-50%, 50%);
+                bottom: 0;
+              }
               input {
                 position: absolute;
                 opacity: 0;
@@ -225,7 +233,7 @@
               border-radius: 15px;
               box-shadow: 0 0 50px rgba($black_bg, 0.7);
               @include respondToBelow(sm) {
-                height: 70vh;
+                height: 55vh;
                 border-radius: 0;
                 box-shadow: none;
               }
@@ -255,6 +263,9 @@
                   height: 100%;
                   width: 100%;
                   object-fit: cover;
+                  @include respondToBelow(sm) {
+                    filter: grayscale(1) brightness(0.5);
+                  }
                 }
                 & + div {
                   transform: translateY(100%);
@@ -379,7 +390,8 @@ section {
         }
       }
     }
-    .directions {
+    .directions,
+    .XLSpacing > div > p:last-child {
       width: calc(50% - 35px);
       text-align: right;
       margin: 30px 0 0 auto;

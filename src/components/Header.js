@@ -79,7 +79,7 @@ const Header = ({ siteTitle }) => {
                 <Link to="/sermons-english">English</Link>
               </li>
               <li>
-                <Link to="/sermons-kannada">Kannada</Link>
+                <Link to="/sermons-kannada">ಕನ್ನಡ</Link>
               </li>
             </DropDown>
 

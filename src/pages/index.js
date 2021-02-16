@@ -115,7 +115,7 @@ const IndexPage = () => {
                         onChange={() => setKannada(!kannada)}
                       />
                       <span>English</span>
-                      <span>Kannada</span>
+                      <span>ಕನ್ನಡ</span>
                     </label>
                     <div
                       className={`sliderCard ${
@@ -152,7 +152,7 @@ const IndexPage = () => {
                 <ModernLine />
                 <div className="timeLayout">
                   <div className="bloq kannada">
-                    <p className="lang">Kannada</p>
+                    <p className="lang">ಕನ್ನಡ</p>
                     <p className="from">
                       <small>from</small> 8:30 AM
                     </p>
@@ -170,7 +170,7 @@ const IndexPage = () => {
                     </p>
                   </div>
                 </div>
-                <p className="directions">
+                <p className="directions test">
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
