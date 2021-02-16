@@ -15,7 +15,7 @@ import Slider from "react-slick";
 
 import { IoCaretForward, IoCloseSharp } from "react-icons/io5";
 
-const IndexPage = () => {
+const Index = () => {
   const [kannada, setKannada] = useState(false);
   const links = ["ZLWfC-nSXmE", "uA8mUtsCf_M"];
 
@@ -398,4 +398,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default Index;
