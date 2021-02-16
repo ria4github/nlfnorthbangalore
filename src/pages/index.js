@@ -22,8 +22,7 @@ const Index = () => {
   const [showVid, setShowVid] = useState(null);
   const aboutRef = useRef(null);
   const scrollToAbout = () => {
-    const theHeight =
-      aboutRef.current.offsetTop + aboutRef.current.clientHeight;
+    const theHeight = aboutRef.current.offsetTop;
     window &&
       window.scrollTo({
         top: theHeight,
@@ -150,7 +149,11 @@ const Index = () => {
                   <span className="solid">Every Sunday</span> for exciting
                   service
                 </p>
-                <ModernLine />
+                <span class="modernLine">
+                  <span>.</span>
+                  <span>.</span>
+                  <span>.</span>
+                </span>
                 <div className="timeLayout">
                   <div className="bloq kannada">
                     <p className="lang">ಕನ್ನಡ</p>
