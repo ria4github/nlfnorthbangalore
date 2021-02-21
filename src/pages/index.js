@@ -17,7 +17,7 @@ import { IoCaretForward, IoCloseSharp } from "react-icons/io5";
 
 const Index = () => {
   const [kannada, setKannada] = useState(false);
-  const links = ["ZLWfC-nSXmE", "uA8mUtsCf_M"];
+  const links = ["2xJ3jqV50qs", "82pf8fQnYtM"];
 
   const [showVid, setShowVid] = useState(null);
   const aboutRef = useRef(null);
@@ -128,6 +128,12 @@ const Index = () => {
                       {links.map((url, idx) => (
                         <div key={idx}>
                           <img
+                            className="bgimg"
+                            onClick={() => setShowVid(url)}
+                            src={`https://img.youtube.com/vi/${url}/maxresdefault.jpg`}
+                          />
+                          <img
+                            className="main"
                             onClick={() => setShowVid(url)}
                             src={`https://img.youtube.com/vi/${url}/maxresdefault.jpg`}
                           />

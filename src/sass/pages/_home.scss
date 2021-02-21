@@ -78,7 +78,7 @@
             color: #fff;
           }
           @include respondToBelow(sm) {
-            flex: 0 0 45vh;
+            flex: 0 0 35vh;
             padding: 30px 15px;
             width: 100%;
             text-align: center;
@@ -148,7 +148,9 @@
               transition: all 0.35s ease-in-out;
               box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
               pointer-events: none;
-
+              @include respondToBelow(sm) {
+                transform: scale(0.5);
+              }
               svg {
                 color: #fff;
                 height: 30px;
@@ -157,14 +159,16 @@
               }
             }
             &:hover .play {
-              height: 100px;
-              width: 100px;
-              border-radius: 50%;
-              transform: rotate(180deg);
-              svg {
-                height: 50px;
-                width: 50px;
-                transform: rotate(-180deg);
+              @include respondToAbove(md) {
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                transform: rotate(180deg);
+                svg {
+                  height: 50px;
+                  width: 50px;
+                  transform: rotate(-180deg);
+                }
               }
             }
             .fetCheck {
@@ -233,12 +237,14 @@
               border-radius: 15px;
               box-shadow: 0 0 50px rgba($black_bg, 0.7);
               @include respondToBelow(sm) {
-                height: 55vh;
+                height: 65vh;
                 border-radius: 0;
                 box-shadow: none;
               }
               &:before {
-                content: "";
+                @include respondToAbove(md) {
+                  content: "";
+                }
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -258,25 +264,64 @@
                 height: 100%;
                 width: 100%;
                 display: flex;
-                transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                img {
+                transition: all 0.5s;
+                .main {
+                  display: none;
+                  transition: all 0.5s 0.15s;
+                  @include respondToBelow(sm) {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    width: 90%;
+                    padding: 10px;
+                    background: #fff;
+                    border-radius: 10px;
+                  }
+                }
+                img.bgimg {
                   height: 100%;
                   width: 100%;
                   object-fit: cover;
                   @include respondToBelow(sm) {
-                    filter: grayscale(1) brightness(0.5);
+                    filter: grayscale(1) brightness(0.5) blur(5px);
                   }
                 }
                 & + div {
                   transform: translateY(100%);
                 }
               }
-              &.kannada {
-                .play + div {
-                  transform: translateY(-100%);
+              &.english {
+                .play {
+                  & + div {
+                    .main {
+                      transform: translateY(0);
+                    }
+                    & + div {
+                      .main {
+                        transform: translateY(200px);
+                      }
+                    }
+                  }
                 }
-                .play + div + div {
-                  transform: translateY(0%);
+              }
+              &.kannada {
+                .play {
+                  & + div {
+                    transform: translateY(-100%);
+                    .main {
+                      transform: translateY(-200px);
+                    }
+                    & + div {
+                      transform: translateY(0%);
+                      .main {
+                        transform: translateY(0);
+                      }
+                    }
+                  }
                 }
               }
             }
