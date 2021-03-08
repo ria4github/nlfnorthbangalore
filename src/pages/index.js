@@ -17,7 +17,7 @@ import { IoCaretForward, IoCloseSharp } from "react-icons/io5";
 
 const Index = () => {
   const [kannada, setKannada] = useState(false);
-  const links = ["ugO9ew1d2Tk", "9s89c8fc3Kw"];
+  const links = ["dLg94AJWSg0", "2plHDncXUG0"];
 
   const [showVid, setShowVid] = useState(null);
   const aboutRef = useRef(null);
