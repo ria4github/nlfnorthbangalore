@@ -7,6 +7,7 @@ import pastorTeam from "../images/pastorTeam.png";
 import { FaCaretRight, FaCaretLeft, FaWhatsapp } from "react-icons/fa";
 import { BiDirections } from "react-icons/bi";
 import { FiFacebook, FiInstagram, FiYoutube } from "react-icons/fi";
+import Airtable from "airtable";
 
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
@@ -17,7 +18,41 @@ import { IoCaretForward, IoCloseSharp } from "react-icons/io5";
 
 const Index = () => {
   const [kannada, setKannada] = useState(false);
-  const links = ["dLg94AJWSg0", "2plHDncXUG0"];
+  // const links = ["dLg94AJWSg0", "2plHDncXUG0"];
+  const [links, setLinks] = useState([]);
+
+  const base = new Airtable({ apiKey: "keyhIAI2HmNPhrt1J" }).base(
+    "appc0N3GGqaBJ0et4"
+  );
+
+  base("ytblink")
+    .select({
+      // Selecting the first 3 records in Grid view:
+      maxRecords: 2,
+      view: "Grid view",
+    })
+    .eachPage(
+      function page(records, fetchNextPage) {
+        // This function (`page`) will get called for each page of records.
+
+        let recordArray = [];
+        records.forEach(function(record) {
+          recordArray.push(record.get("video_id"));
+        });
+        setLinks(recordArray);
+
+        // To fetch the next page of records, call `fetchNextPage`.
+        // If there are more records, `page` will get called again.
+        // If there are no more records, `done` will get called.
+        fetchNextPage();
+      },
+      function done(err) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      }
+    );
 
   const [showVid, setShowVid] = useState(null);
   const aboutRef = useRef(null);
@@ -125,20 +160,21 @@ const Index = () => {
                       <span className="play">
                         <IoCaretForward />
                       </span>
-                      {links.map((url, idx) => (
-                        <div key={idx}>
-                          <img
-                            className="bgimg"
-                            onClick={() => setShowVid(url)}
-                            src={`https://img.youtube.com/vi/${url}/maxresdefault.jpg`}
-                          />
-                          <img
-                            className="main"
-                            onClick={() => setShowVid(url)}
-                            src={`https://img.youtube.com/vi/${url}/maxresdefault.jpg`}
-                          />
-                        </div>
-                      ))}
+                      {links &&
+                        links.map((url, idx) => (
+                          <div key={idx}>
+                            <img
+                              className="bgimg"
+                              onClick={() => setShowVid(url)}
+                              src={`https://img.youtube.com/vi/${url}/maxresdefault.jpg`}
+                            />
+                            <img
+                              className="main"
+                              onClick={() => setShowVid(url)}
+                              src={`https://img.youtube.com/vi/${url}/maxresdefault.jpg`}
+                            />
+                          </div>
+                        ))}
                     </div>
                   </p>
                 </div>
