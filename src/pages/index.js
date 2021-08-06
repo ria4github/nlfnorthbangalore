@@ -125,7 +125,7 @@ const Index = () => {
               <div className="container">
                 <div className="left">
                   <h4 className="main-heading-ttl">
-                    You matter to god,
+                    You matter to God,
                     <br />
                     You matter to us
                   </h4>
